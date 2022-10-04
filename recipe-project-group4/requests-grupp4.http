@@ -11,8 +11,8 @@ POST {{baseUrl}}/recipes HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Toast skagen",
-    "description": "Gott till champagne",
+    "title": "Fiskgratäng",
+    "description": "Storkok på fiskgratäng med en twist!",
     "ratings": [],
     "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_223427/cf_259/korvstroganoff_med_ris.jpg",
     "timeInMins": 15,
