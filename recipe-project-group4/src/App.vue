@@ -12,6 +12,8 @@ import { RouterLink, RouterView } from 'vue-router'
     <br/>
     <RouterLink to="/category"></RouterLink>
 
+
+<RouterLink to="/category"></RouterLink>
     <RouterView />
 </template>
 
