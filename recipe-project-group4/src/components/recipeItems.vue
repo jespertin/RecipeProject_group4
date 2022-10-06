@@ -3,13 +3,15 @@
 
     <ul v-if="apiData">
         <div>
-            <li v-for="recipe in apiData">
-                <h3>{{recipe.title}}</h3>
-                <p id="Description">{{recipe.description}}</p>
-                <img :src="recipe.imageUrl" alt="pictureOfFood">
-                <p>Rating: {{recipe.avgRating}}</p>
-                <p>Ingredients: {{recipe.ingredients.length}}</p>
-            </li>
+            <a href="/recipe">
+                <li v-for="recipe in apiData">
+                    <h3 id="Title">{{recipe.title}}</h3>
+                    <img id="FoodImage" :src="recipe.imageUrl" alt="pictureOfFood">
+                    <p id="Description">{{recipe.description}}</p>
+                    <p id="Rating">Rating: {{recipe.avgRating}}</p>
+                    <p id="IngredientAmount">Ingredients: {{recipe.ingredients.length}}</p>
+                </li>
+            </a>
         </div>
     </ul>
 
@@ -32,10 +34,17 @@ export default {
 </script>
 
 <style scoped>
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+a{
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
@@ -49,7 +58,16 @@ li {
     width: 30vw;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+#Description {
+    width: 100%;
+}
+#Title {
+    width: 100%;
 }
 
 </style>
