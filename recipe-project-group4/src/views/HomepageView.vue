@@ -8,6 +8,12 @@
 
 </template>
     
+kategorier
+RecipeItem
+recipelist
+filterRecipies
+comments
+
     
 <script>
 export default {

@@ -3,6 +3,15 @@ import { RouterLink, RouterView } from 'vue-router'
 
 </script>
 
+categoriesNavBar
+
+recipe
+
+
+
+
+
+
 
 <template>
 
@@ -11,6 +20,8 @@ import { RouterLink, RouterView } from 'vue-router'
     <RouterLink to="/recipe">recipelister</RouterLink>
     <br/>
     <RouterLink to="/category"></RouterLink>
+
+    
 
     <RouterView />
 </template>
