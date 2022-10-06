@@ -21,6 +21,8 @@ recipe
     <br/>
     <RouterLink to="/category"></RouterLink>
 
+    <RouterLink to="/category"></RouterLink>
+
     <RouterView />
 </template>
 
