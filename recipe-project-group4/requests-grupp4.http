@@ -7,78 +7,168 @@ GET {{baseUrl}}/recipes HTTP/1.1
 ###
 
 # Lägger till ett nytt recept
+
+
 POST {{baseUrl}}/recipes HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Fiskgratäng",
-    "description": "Storkok på fiskgratäng med en twist!",
-    "ratings": [4,5,4,3],
-    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_223427/cf_259/korvstroganoff_med_ris.jpg",
-    "timeInMins": 30,
-    "categories": "Huvudrätt",
-    "instructions": [ "Koka riset", "Skär korven", "stek korv och lök, tillsätt sen tomatpure", "rör ner grädde och mjölk. Låt sjuda i 5 minuter", "Smaka av med peppar och salt"],
+    "title": "Lemon posset med hallon",
+    "description": "Lemon posset är en brittisk dessert gjord på grädde smaksatt med citron och påminner om italiensk pannacotta men utan gelatin. En krämig efterrätt med perfekt balans mellan syra och sötma som är både löjligt enkel och löjligt god!",
+    "ratings": [],
+    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243039/cf_259/lemon_posset_med_hallon.jpg",
+    "timeInMins": 60,
+    "categories": "Efterrätt",
+    "instructions": [ "Koka upp grädde och socker, låt koka 1 minut. Ta från värmen och rör ner citronjuice.", 
+"Häll upp i 6 formar eller glas (för 6 port) och ställ i kylen minst 4 timmar eller tills de stelnat.", 
+"Till servering: Toppa med hallon vid servering."],
     "ingredients": [
         {
-            "name": "Ris",
-            "amount": 4,
-            "unit": "portioner"
+            "name": "VispGrädde",
+            "amount": 5,
+            "unit": "dl"
         },
         {
-            "name": "Falukorv",
-            "amount": 550,
+            "name": "Strösocker",
+            "amount": 1.5,
+            "unit": "dl"
+        },
+        {
+            "name": "Färskpressad citronjuice",
+            "amount": 0.75,
+            "unit": "dl"
+        },
+        {
+            "name": "Förp färska hallon",
+            "amount": 125,
             "unit": "g"
-        },
-        {
-            "name": "lök",
-            "amount": 1,
-            "unit": "antal"
-        },
-        {
-            "name": "Tomatpure",
-            "amount": 3,
-            "unit": "msk"
-        },
-        {
-            "name": "Grädde",
-            "amount": 2,
-            "unit": "dl"
-        },
-        {
-            "name": "mjölk",
-            "amount": 1,
-            "unit": "dl"
         }
+        
     ]
 }
 
 ###
 
 # Lägger till ett nytt recept
+
 POST {{baseUrl}}/recipes HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Bruscetta",
-    "description": "Att börja med",
-    "ratings": [2, 3, 4, 1, 2, 3],
-    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_223427/cf_259/korvstroganoff_med_ris.jpg",
-    "timeInMins": 15,
-    "categories": [ "Förrätt", "Italienskt" ],
-    "instructions": [ "Stek brödet", "Hacka tomater och Mozarella", "Lägg på brödet"],
+    "title": "Lemon posset med hallon",
+    "description": "Lemon posset är en brittisk dessert gjord på grädde smaksatt med citron och påminner om italiensk pannacotta men utan gelatin. En krämig efterrätt med perfekt balans mellan syra och sötma som är både löjligt enkel och löjligt god!",
+    "ratings": [],
+    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243039/cf_259/lemon_posset_med_hallon.jpg",
+    "timeInMins": 60,
+    "categories": "Efterrätt",
+    "instructions": [ "Koka upp grädde och socker, låt koka 1 minut. Ta från värmen och rör ner citronjuice.", 
+"Häll upp i 6 formar eller glas (för 6 port) och ställ i kylen minst 4 timmar eller tills de stelnat.", 
+"Till servering: Toppa med hallon vid servering."],
     "ingredients": [
         {
-            "name": "Bröd",
-            "amount": 1,
-            "unit": "skiva"
+            "name": "VispGrädde",
+            "amount": 5,
+            "unit": "dl"
         },
         {
-            "name": "Tomat",
+            "name": "Strösocker",
+            "amount": 1.5,
+            "unit": "dl"
+        },
+        {
+            "name": "Färskpressad citronjuice",
+            "amount": 0.75,
+            "unit": "dl"
+        },
+        {
+            "name": "Förp färska hallon",
+            "amount": 125,
+            "unit": "g"
+        }
+        
+    ]
+}
+
+# Lägger till ett nytt recept
+
+POST {{baseUrl}}/recipes HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Färsk pasta med lax och svartkål",
+    "description": "Snabb, lättlagad och försvinnande god är laxpastan som görs av crème fraiche och svartkål. Låt laxbitarna koka i den goda såsen som även smaksätts med lite citron. Servera sedan laxen i såsen färsk pasta, fettuccine. Så gott!",
+    "ratings": [],
+    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243518/cf_259/farsk_pasta_med_lax_och_svartkal___.jpg",
+    "timeInMins": 30,
+    "categories": "Huvudrätt",
+    "instructions": [ "Tina fisken (om fryst används).", "
+Sätt på en stor kastrull med vatten till pastan.", "Dra av svartkålsbladen från stjälkarna och hacka bladen grovt. Hacka stjälkarna fint.", "rör ner grädde och mjölk. Låt sjuda i 5 minuter", "
+Fräs all svartkål i smöret i en stekpanna (med lock) ca 2 minuter.", "Tillsätt crème fraiche, vatten och smulad buljongtärning. Sjud på svag värme ca 5 minuter.", "
+Hacka salladslöken fint och basilikan grovt.", "
+Riv yttersta skalet av citronen och pressa ur citronsaften. Smaksätt kålsåsen med citronskal, citronsaft, salt och peppar.", "
+Lägg laxbitarna i såsen och sjud under lock i 2-3 minuter eller tills laxen har en innertemperatur på 54°C.", "Koka pastan enligt anvisningen på förpackningen.", "
+Strö salladslöken och basilika över laxen och servera tillsammans med pastan."],
+    "ingredients": [
+        {
+            "name": "Svartkål",
+            "amount": 200,
+            "unit": "g"
+        },
+        {
+            "name": "Smör",
             "amount": 2,
-            "unit": "stycken"
+            "unit": "msk"
+        },
+        {
+            "name": "Crème fraiche",
+            "amount": 2.5,
+            "unit": "dl"
+        },
+        {
+            "name": "Vatten",
+            "amount": 2,
+            "unit": "dl"
+        },
+        {
+            "name": "Grönsaksbuljongtärning",
+            "amount": 1,
+            "unit": "st"
+        },
+        {
+            "name": "citron",
+            "amount": 1,
+            "unit": "st"
+        },
+         {
+            "name": "Basilika",
+            "amount": 1,
+            "unit": "kruka"
+        },
+         {
+            "name": "Salt",
+            "amount": 0.5,
+            "unit": "kruka"
+        },
+         {
+            "name": "Svartpeppar",
+            "amount": 3,
+            "unit": "kmr"
+        },
+         {
+            "name": "Laxfilé",
+            "amount": 4,
+            "unit": "st"
+        },
+         {
+            "name": "fettuccine",
+            "amount": 2,
+            "unit": "förp"
         }
     ]
 }
+
+
+
 
 ###
 # Söker bland alla recept
