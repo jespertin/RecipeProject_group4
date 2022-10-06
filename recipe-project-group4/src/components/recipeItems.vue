@@ -1,6 +1,5 @@
 <template>
-    <!-- Namn, bild, avg rating, ingrediens info(antal ingredienser?), tid för tillagning, gör det snyggt, 5 recept per sida, kanske? -->
-
+    <!-- Todo: Centrera namnet, Bilden ska vara bredvid description, description skall ha en bestämd storlek så att alla items i listan blir lika stora -->
     <ul v-if="apiData">
         <div>
             <a href="/recipe">
@@ -10,6 +9,7 @@
                     <p id="Description">{{recipe.description}}</p>
                     <p id="Rating">Rating: {{recipe.avgRating}}</p>
                     <p id="IngredientAmount">Ingredients: {{recipe.ingredients.length}}</p>
+                    <p id="TimeToCook">Time: {{recipe.timeInMins}}min</p>
                 </li>
             </a>
         </div>
@@ -38,7 +38,7 @@ export default {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -66,8 +66,8 @@ li {
 #Description {
     width: 100%;
 }
+
 #Title {
     width: 100%;
 }
-
 </style>
