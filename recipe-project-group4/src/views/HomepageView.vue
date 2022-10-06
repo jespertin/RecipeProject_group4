@@ -1,33 +1,15 @@
 <template>
     <h1>This is Homepage</h1>
 
-
-    <ul v-if="apiData">
-        <li v-for="recipe in apiData">{{recipe.title}}</li>
-    </ul>
+    <recipe-item></recipe-item>
 
 </template>
-    
-kategorier
-RecipeItem
-recipelist
-filterRecipies
-comments
 
-    
 <script>
+    import RecipeItem from '../components/recipeItems.vue'
 export default {
-    data() {
-        return {
-            apiData: null,
-        }
-    },
-    created() {
-        fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes")
-            .then(response => response.json())
-            .then(data => this.apiData = data)
-            .catch(error => console.log("error: " + error));
-
-    }
+    components: {
+        RecipeItem
+    }   
 }
 </script>
