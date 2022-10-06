@@ -3,6 +3,15 @@ import { RouterLink, RouterView } from 'vue-router'
 
 </script>
 
+categoriesNavBar
+
+recipe
+
+
+
+
+
+
 
 <template>
 
