@@ -3,14 +3,23 @@ import { RouterLink, RouterView } from 'vue-router'
 
 </script>
 
-//dsas
+
+
+
+
+
+
+
+
 <template>
 
     <RouterLink to="/">home</RouterLink>
     <br/>
-    <RouterLink to="/recipe">recipelister</RouterLink>
+    <RouterLink to="/recipe">recipe</RouterLink>
     <br/>
-    <RouterLink to="/category"></RouterLink>
+    <RouterLink to="/category">category</RouterLink>
+
+    
 
     <RouterView />
 </template>
