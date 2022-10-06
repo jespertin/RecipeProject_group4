@@ -25,7 +25,6 @@ export default {
                 this.name = this.apiData[0].title
             })
             .catch(error => console.log("error: " + error));
-
     }
 }
 </script>
