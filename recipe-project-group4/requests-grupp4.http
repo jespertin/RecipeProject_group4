@@ -172,7 +172,7 @@ Strö salladslöken och basilika över laxen och servera tillsammans med pastan.
 
 ###
 # Söker bland alla recept
-GET {{baseUrl}}/recipes?query=toas HTTP/1.1
+GET {{baseUrl}}/recipes?query=pizza HTTP/1.1
 
 ###
 
