@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 
 </script>
-
+j
 <template>
 
     <RouterLink to="/">home</RouterLink>
