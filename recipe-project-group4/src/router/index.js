@@ -7,7 +7,7 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: () => import('../views/HomepageView.vue')
-      
+
     },
     {
       path: '/recipe',
@@ -18,7 +18,14 @@ const router = createRouter({
       path: '/category',
       name: 'category',
       component: () => import('../views/CategoryView.vue')
+    },
+    {
+      path: '/recipe/:recipeId',
+      name: 'specificRecipe',
+      component: () => import('../views/RecipeView.vue')
     }
+
+
   ]
 })
 
