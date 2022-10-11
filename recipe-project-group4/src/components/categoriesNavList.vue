@@ -12,8 +12,6 @@
 </template>
 
 <script>
-import { RouterLink } from 'vue-router'
-import CategoryViewVue from '../views/CategoryView.vue';
 export default {
   data() {
     return {
@@ -25,7 +23,7 @@ export default {
       .then((response) => response.json())
       .then((data) => (this.apiData = data))
       .catch((error) => console.log("error: " + error));
-  },
+  }
 };
 </script>
 
@@ -54,10 +52,6 @@ li {
 h3 {
   text-align: left;
   margin-left: 20px;
-}
-
-a:link {
-  text-decoration: none;
 }
 
 p {

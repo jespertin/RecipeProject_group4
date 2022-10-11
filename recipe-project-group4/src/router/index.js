@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
@@ -10,27 +10,15 @@ const router = createRouter({
 
     },
     {
-      path: '/recipe',
-      name: 'recipe',
-      component: () => import('../views/RecipeView.vue')
-    },
-    {
       path: '/category/:categoryName',
-      name: 'category',
+      name: 'specificCategory',
       component: () => import('../views/CategoryView.vue')
     },
     {
       path: '/recipe/:recipeId',
       name: 'specificRecipe',
       component: () => import('../views/RecipeView.vue')
-    },
-    {
-      path: '/recipe/:categoryId',
-      name: 'specificCategory',
-      component: () => import('../views/CategoryView.vue')
     }
-
-
   ]
 })
 

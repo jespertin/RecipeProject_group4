@@ -1,17 +1,16 @@
 <template>
   <h1>This is Homepage</h1>
-
-  <categories-nav></categories-nav>
+  <categories-nav-list></categories-nav-list>
   <recipe-items :mydata="apiData"></recipe-items>
 </template>
 
 <script>
 import RecipeItems from "../components/recipeItems.vue";
-import CategoriesNav from "../components/categoriesNavList.vue";
+import CategoriesNavList from "../components/categoriesNavList.vue";
 export default {
   components: {
     RecipeItems,
-    CategoriesNav
+    CategoriesNavList
   },
   data() {
     return {
