@@ -1,6 +1,7 @@
 <template>
     <h1>This is Homepage</h1>
 
+
     <recipe-items :mydata="apiData"></recipe-items>
 </template>
 
@@ -22,6 +23,5 @@ export default {
             .catch(error => console.log("error: " + error));
     }
 
-}
 
 </script>
