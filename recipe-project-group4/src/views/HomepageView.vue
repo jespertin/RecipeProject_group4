@@ -10,7 +10,7 @@
 
 <script>
     import RecipeItem from '../components/recipeItems.vue'
-    import CategoriNavBar from '../components/categoriesNav.vue'
+    import CategoriNavBar from '../components/categoriesNavList.vue'
 export default {
     components: {
         RecipeItem,
