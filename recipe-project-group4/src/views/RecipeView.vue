@@ -4,7 +4,6 @@
     <p v-if="recipe">{{recipe.description}}</p>
 </template>
 
-
 <script>
 export default {
     created() {
@@ -20,3 +19,4 @@ export default {
     }
 }
 </script>
+
