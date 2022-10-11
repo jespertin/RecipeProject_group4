@@ -1,6 +1,7 @@
 <template>
     <h1>This is the recipe page</h1>
     <p v-if="recipe">{{recipe.title}}</p>
+    <p v-if="recipe">{{recipe.description}}</p>
 </template>
 
 
