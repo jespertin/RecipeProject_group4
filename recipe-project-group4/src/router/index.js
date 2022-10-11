@@ -1,23 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
 
 const router = createRouter({
-  history: createWebHistory(import.meta.env.BASE_URL),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
       name: 'home',
       component: () => import('../views/HomepageView.vue')
-      
+
     },
     {
-      path: '/recipe',
-      name: 'recipe',
-      component: () => import('../views/RecipeView.vue')
-    },
-    {
-      path: '/category',
-      name: 'category',
+      path: '/category/:categoryName',
+      name: 'specificCategory',
       component: () => import('../views/CategoryView.vue')
+    },
+    {
+      path: '/recipe/:recipeId',
+      name: 'specificRecipe',
+      component: () => import('../views/RecipeView.vue')
     }
   ]
 })
