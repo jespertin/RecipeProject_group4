@@ -1,16 +1,17 @@
-<script >
-import { RouterLink, RouterView } from 'vue-router'
-
-</script>
 
 <template>
 
     <RouterLink to="/">home</RouterLink>
-    <br/>
+    <br />
     <RouterLink to="/recipe">recipe</RouterLink>
-    <br/>
+    <br />
     <RouterLink to="/category">category</RouterLink>
 
     <RouterView />
 </template>
 
+<script >
+import { RouterLink, RouterView } from 'vue-router'
+
+</script>
+    

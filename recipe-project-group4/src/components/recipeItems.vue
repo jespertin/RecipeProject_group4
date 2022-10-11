@@ -1,9 +1,9 @@
 <template>
     <!-- Todo: Centrera namnet, Bilden ska vara bredvid description, description skall ha en bestämd storlek så att alla items i listan blir lika stora -->
-    <ul v-if="apiData">
+    <ul v-if="mydata">
         <div>
-            <a href="/recipe">
-                <li v-for="recipe in apiData">
+            <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
+                <li>
                     <h3 id="Title">{{recipe.title}}</h3>
                     <img id="FoodImage" :src="recipe.imageUrl" alt="pictureOfFood">
                     <p id="Description">{{recipe.description}}</p>
@@ -11,24 +11,18 @@
                     <p id="IngredientAmount">Ingredients: {{recipe.ingredients.length}}</p>
                     <p id="TimeToCook">Time: {{recipe.timeInMins}}min</p>
                 </li>
-            </a>
+            </router-link>
         </div>
     </ul>
 
 </template>
 <script>
-export default {
-    data() {
-        return {
-            apiData: null,
-        }
-    },
-    created() {
-        fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes")
-            .then(response => response.json())
-            .then(data => this.apiData = data)
-            .catch(error => console.log("error: " + error));
+import { RouterLink } from 'vue-router'
 
+export default {
+    name: "RecipeItems",
+    props: {
+        mydata: Array
     }
 }
 </script>
@@ -58,16 +52,19 @@ li {
     width: 30vw;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: cadetblue;
 }
 
 #Description {
-    width: 100%;
+    width: 70%;
 }
 
 #Title {
     width: 100%;
+    align-self: center;
 }
+
 </style>
