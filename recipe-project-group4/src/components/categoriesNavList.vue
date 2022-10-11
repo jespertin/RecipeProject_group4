@@ -2,16 +2,18 @@
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
-      <a href="/category">
-        <li v-for="category in apiData">
+      <router-link  v-for="category in apiData" :to="'/category/' + category.name">
+        <li>
           <p>{{ category.name }} ({{ category.count }})</p>
         </li>
-      </a>
+      </router-link>
     </ul>
   </div>
 </template>
 
 <script>
+import { RouterLink } from 'vue-router'
+import CategoryViewVue from '../views/CategoryView.vue';
 export default {
   data() {
     return {
