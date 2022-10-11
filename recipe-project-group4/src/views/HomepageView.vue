@@ -11,7 +11,7 @@ import CategoriesNav from "../components/categoriesNavList.vue";
 export default {
   components: {
     RecipeItems,
-    CategoriesNav,
+    CategoriesNav
   },
   data() {
     return {
