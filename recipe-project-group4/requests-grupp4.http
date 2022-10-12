@@ -18,7 +18,7 @@ Content-Type: application/json
     "ratings": [],
     "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243039/cf_259/lemon_posset_med_hallon.jpg",
     "timeInMins": 60,
-    "categories": "Efterrätt",
+    "categories": "Desert",
     "instructions": [ "Koka upp grädde och socker, låt koka 1 minut. Ta från värmen och rör ner citronjuice.", 
 "Häll upp i 6 formar eller glas (för 6 port) och ställ i kylen minst 4 timmar eller tills de stelnat.", 
 "Till servering: Toppa med hallon vid servering."],
@@ -172,7 +172,7 @@ Strö salladslöken och basilika över laxen och servera tillsammans med pastan.
 
 ###
 # Söker bland alla recept
-GET {{baseUrl}}/recipes?query=toas HTTP/1.1
+GET {{baseUrl}}/recipes?query=pizza HTTP/1.1
 
 ###
 
