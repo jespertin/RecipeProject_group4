@@ -1,5 +1,5 @@
 <template>
-  <RouterLink id="buttonHome" to="/">home</RouterLink>
+  <RouterLink id="buttonHome" to="/">Startsida</RouterLink>
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
@@ -63,19 +63,18 @@ a {
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
-  color: rgb(0, 0, 0);
-  padding: 0.5rem 1.5rem;
+  padding: 7px 18px 7px 4px;
   display: inline-block;
   border-radius: 20px;
+  
 }
 
 
 a:hover,
 a:active,
 a.router-link-active{
-  color: rgb(21, 19, 19);
   border-color: aqua;
-  background-color: aquamarine;
+  background-color: rgb(147, 249, 215);
 }
 
 #buttonHome {
@@ -85,9 +84,10 @@ a.router-link-active{
     border-radius: 20px;
     font-family: 'Montserrat', sans-serif;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 25px;
     padding: 10px 20px 10px 20px;
     text-decoration: none;
+    margin-top: 1%;
 }
 
 #buttonHome:hover {

@@ -1,7 +1,7 @@
 <template>
   <header>
-  <h1>Recipe site</h1>
-  <h1>Group 4</h1>
+  <h1>Receptsajten</h1>
+  <h2>Grupp 4</h2>
 </header>
   <categories-nav-list></categories-nav-list>
   <recipe-items :mydata="apiData"></recipe-items>

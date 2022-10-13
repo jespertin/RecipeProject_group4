@@ -14,8 +14,11 @@ import { RouterLink, RouterView } from 'vue-router'
 <style>
 #footer-container {
     background-color: #11999E;
-    margin: auto;
     padding-top: 0%;
+    border-bottom: 5%;
+    margin-top: 0%;
+    bottom: 10 rem;
+    
 }
 
 #copyright {
@@ -40,9 +43,19 @@ h1 {
     font-family: 'Merriweather', serif;;
     font-size: 2 rem;
     font-weight: bold;
-    text-align: center
+    flex: 2;
+    text-align: left !important;
 
 } 
+h2 {
+    color: #e8eeee;
+    margin: 0% auto 0 auto;
+    font-family: 'Merriweather', serif;;
+    font-size: 3 rem;
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+}
 header {
   width: 100%;
   height: 5 rem;
@@ -50,8 +63,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  text-align: center;
-  background-color:  #11999E;
+  background-color:   #19b9bf;
+  
  
 
 }
