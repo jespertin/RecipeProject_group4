@@ -2,7 +2,6 @@
 <SpecificRecipe :recipe="recipe"></SpecificRecipe>
 </template>
 
-
 <script>
 import SpecificRecipe from '../components/specificRecipe.vue'
 export default {

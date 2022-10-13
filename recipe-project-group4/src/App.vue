@@ -1,4 +1,3 @@
-
 <template>
 
     <RouterLink to="/">home</RouterLink>
