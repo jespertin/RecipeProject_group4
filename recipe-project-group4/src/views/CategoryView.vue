@@ -1,7 +1,14 @@
 <template>
+    <header>
     <h1>{{this.$route.params.categoryName}}</h1>
+</header>
     <categories-nav-list></categories-nav-list>
     <recipe-items :mydata="apiData"></recipe-items>
+    <footer>
+    <div id="footer-container">
+      <p id="copyright">© A Group 4 Production.</p>
+    </div>
+  </footer>
 </template>
 
 <script>

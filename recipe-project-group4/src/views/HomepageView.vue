@@ -1,7 +1,15 @@
 <template>
-  <h1>This is Homepage</h1>
+  <header>
+  <h1>Recipe site</h1>
+  <h1>Group 4</h1>
+</header>
   <categories-nav-list></categories-nav-list>
   <recipe-items :mydata="apiData"></recipe-items>
+  <footer>
+    <div id="footer-container">
+      <p id="copyright">© A Group 4 Production.</p>
+    </div>
+  </footer>
 </template>
 
 <script>
@@ -25,3 +33,7 @@ export default {
   },
 };
 </script>
+
+<style>
+
+</style>
