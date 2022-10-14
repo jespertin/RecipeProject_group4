@@ -31,10 +31,6 @@ export default {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-a {
-    text-decoration: none;
-}
-
 ul {
     list-style: none;
     display: flex;
