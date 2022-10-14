@@ -1,5 +1,129 @@
 <template>
-    <!-- Todo: Centrera namnet, Bilden ska vara bredvid description, description skall ha en bestämd storlek så att alla items i listan blir lika stora -->
+  <main v-if="mydata">
+    <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
+      <div class="receptDiv">
+        <h1>{{ recipe.title }}</h1>
+        <div class="pictureAndDescription">
+         <p class="description" id="info">{{ recipe.description }}</p>
+         <div class="imgSize">
+            <img :src="recipe.imageUrl" alt="pictureOfFood" />
+          </div>
+        </div>
+        <p>Rating: {{ recipe.avgRating }}</p>
+        <p>Ingredients: {{ recipe.ingredients.length }}</p>
+        <p>Time: {{ recipe.timeInMins }}min</p>
+      </div>
+    </router-link>
+  </main>
+</template>
+<script>
+export default {
+  name: "RecipeItems",
+  props: {
+    mydata: Array,
+  },
+};
+</script>
+
+<style scoped>
+* {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
+  font-size: 105%;
+}
+
+p{
+  
+    background-color: rgba(154, 162, 163, 0.966);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+
+.imgSize{
+    width: 300px;
+  height: 300px;
+
+}
+
+img {
+    max-width: 100%;  
+height: 100%; 
+border-radius: 20px;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+a:link :hover {
+  background-color: lightgray;
+}
+
+.description {
+  width: 40%;
+  height: auto;
+}
+
+.pictureAndDescription {
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.receptDiv {
+  width: 50vw;
+  border: 1px solid;
+
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  border-radius: 20px;
+}
+
+#info{
+    background-color: rgba(154, 162, 163, 0.966);
+    border-radius: 5px;
+    padding: 5px;
+}
+
+h1 {
+  text-align: center;
+  text-decoration: underline;
+  font-size: 150%;
+}
+
+main {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+ul {
+  list-style: none;
+}
+
+
+
+li {
+}
+
+#Description {
+}
+
+#Title {
+}
+</style>
+
+<!-- <template>
     <ul v-if="mydata">
         <div>
             <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
@@ -62,4 +186,4 @@ li {
     align-self: center;
 }
 
-</style>
+</style> -->
