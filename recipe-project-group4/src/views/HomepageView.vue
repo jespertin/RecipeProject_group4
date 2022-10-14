@@ -6,6 +6,14 @@
         <li v-for="recipe in apiData">{{recipe.title}}</li>
     </ul>
 
+
+    <ul v-if="apiData">
+        <li v-for="recipe in apiData">{{recipe.title}}
+            <ul v-if="apiData">
+                <li v-for="ingredient in recipe.ingredients">{{ingredient.name}}</li>
+            </ul>
+        </li>
+    </ul>
 </template>
     
 kategorier

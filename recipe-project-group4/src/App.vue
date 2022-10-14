@@ -11,8 +11,6 @@ j
     <br/>
     <RouterLink to="/category">category</RouterLink>
 
-    
-
     <RouterView />
 </template>
 
