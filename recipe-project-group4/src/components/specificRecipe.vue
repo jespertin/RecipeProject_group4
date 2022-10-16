@@ -78,9 +78,6 @@ img {
     padding: 5px;
 }
 
-#description{
-}
-
 #pictureContainer {
     width: 20vw;
 }
@@ -94,10 +91,6 @@ h1 {
     text-align: center;
     font-size: 40px;
     text-decoration: underline;
-}
-
-#instructions {
-    
 }
 
 #ingredients {

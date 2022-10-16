@@ -1,8 +1,10 @@
 <template>
-    <!-- Todo: Centrera namnet, Bilden ska vara bredvid description, description skall ha en bestämd storlek så att alla items i listan blir lika stora -->
+    <!-- Todo: filterRecipeList metoden funkar..hur? Läs om hur indexOf metoden på String funkar, samt varför !== -1 ?-->
     <ul v-if="mydata">
         <div>
-            <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
+            <!-- <filter-recipes :recipes="mydata" @emit-tester="handleCustomChange"></filter-recipes> -->
+            <input type="text" v-model="searchString" placeholder="Search"/>
+            <router-link v-for="recipe in filterRecipeList" :to="'/recipe/' + recipe._id">
                 <li>
                     <h3 id="Title">{{recipe.title}}</h3>
                     <img id="FoodImage" :src="recipe.imageUrl" alt="pictureOfFood">
@@ -17,11 +19,23 @@
 
 </template>
 <script>
+import FilterRecipes from "./filterRecipes.vue";
 
 export default {
     name: "RecipeItems",
     props: {
         mydata: Array
+    },
+    components: { FilterRecipes },
+    data() {
+        return {
+            searchString: "",
+        }
+    },
+    computed: {
+        filterRecipeList() {
+            return this.mydata.filter(recipe => recipe.title.toLowerCase().indexOf(this.searchString.toLowerCase()) !==  -1) 
+        }
     }
 }
 </script>
