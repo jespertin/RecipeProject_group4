@@ -1,7 +1,8 @@
 <template>
   <main v-if="mydata">
-    <div>
+    
     <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
+      <div class="divHover">
       <div class="receptDiv">
         <h1>{{ recipe.title }}</h1>
         <div class="pictureAndDescription">
@@ -10,12 +11,13 @@
             <img :src="recipe.imageUrl" alt="pictureOfFood" />
           </div>
         </div>
-        <p>Rating: {{ recipe.avgRating }}</p>
-        <p>Ingredients: {{ recipe.ingredients.length }}</p>
-        <p>Time: {{ recipe.timeInMins }}min</p>
+        <p id="pStyle">Rating: {{ recipe.avgRating }}</p>
+        <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
+        <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
       </div>
+    </div>
     </router-link>
-  </div>
+ 
   </main>
 </template>
 <script>
@@ -34,7 +36,7 @@ export default {
   font-size: 105%;
 }
 
-p{
+#pStyle{
   
     background-color: rgba(154, 162, 163, 0.966);
     border-radius: 5px;
@@ -58,9 +60,11 @@ a {
   color: black;
   text-decoration: none;
 }
-a:link :hover {
+/* a:link :hover {
   background-color: lightgray;
-}
+} */
+
+
 
 .description {
   width: 40%;
@@ -90,6 +94,10 @@ a:link :hover {
   background-color: white;
 }
 
+.divHover :hover{
+  background-color: lightgray;
+}
+
 #info{
     background-color: rgba(154, 162, 163, 0.966);
     border-radius: 5px;
@@ -101,6 +109,8 @@ h1 {
   text-decoration: underline;
   font-size: 150%;
   color: black;
+  border-radius: 20px;
+
 }
 
 main {
