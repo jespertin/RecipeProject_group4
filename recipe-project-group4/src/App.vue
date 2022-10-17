@@ -44,7 +44,7 @@ h1 {
     font-size: 2 rem;
     font-weight: bold;
     flex: 2;
-    text-align: left !important;
+    text-align: left;
 
 } 
 h2 {

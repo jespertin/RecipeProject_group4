@@ -1,5 +1,6 @@
 <template>
   <main v-if="mydata">
+    <div>
     <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
       <div class="receptDiv">
         <h1>{{ recipe.title }}</h1>
@@ -14,6 +15,7 @@
         <p>Time: {{ recipe.timeInMins }}min</p>
       </div>
     </router-link>
+  </div>
   </main>
 </template>
 <script>
@@ -47,7 +49,7 @@ p{
 }
 
 img {
-    max-width: 100%;  
+max-width: 100%;  
 height: 100%; 
 border-radius: 20px;
 }
@@ -85,6 +87,7 @@ a:link :hover {
   justify-content: space-around;
   flex-wrap: wrap;
   border-radius: 20px;
+  background-color: white;
 }
 
 #info{
@@ -97,6 +100,7 @@ h1 {
   text-align: center;
   text-decoration: underline;
   font-size: 150%;
+  color: black;
 }
 
 main {
@@ -112,15 +116,6 @@ ul {
 }
 
 
-
-li {
-}
-
-#Description {
-}
-
-#Title {
-}
 </style>
 
 <!-- <template>
