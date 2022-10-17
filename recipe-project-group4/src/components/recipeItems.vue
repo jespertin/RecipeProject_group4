@@ -2,7 +2,6 @@
     <!-- Todo: filterRecipeList metoden funkar..hur? Läs om hur indexOf metoden på String funkar, samt varför !== -1 ?-->
     <ul v-if="mydata">
         <div>
-            <!-- <filter-recipes :recipes="mydata" @emit-tester="handleCustomChange"></filter-recipes> -->
             <input type="text" v-model="searchString" placeholder="Search"/>
             <router-link v-for="recipe in filterRecipeList" :to="'/recipe/' + recipe._id">
                 <li>

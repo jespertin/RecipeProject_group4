@@ -42,10 +42,11 @@ export default {
 
 <style scoped>
 *{
-    font-size: 30px;
+    font-size: 100%;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 }
+
 main {
     width: 60vw;
     border: solid 1px;
@@ -69,7 +70,7 @@ img {
 
 #infoAndDescriptionContainer {
     width: 50%;
-    font-size: 40px;
+    font-size: 1.3em;
 }
 
 #info{
@@ -89,7 +90,7 @@ section {
 h1 {
     width: 100%;
     text-align: center;
-    font-size: 40px;
+    font-size: 2em;
     text-decoration: underline;
 }
 
@@ -102,6 +103,7 @@ h1 {
     flex-direction: row;
     justify-content: space-around;
     align-items: space-around;
+    font-size: 1em;
 }
 
 h3 {
