@@ -1,14 +1,16 @@
 <template>
+ 
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
-      <router-link  v-for="category in apiData" :to="'/category/' + category.name">
+      <router-link class="routerLink"  v-for="category in apiData" :to="'/category/' + category.name">
         <li>
           <p>{{ category.name }} ({{ category.count }})</p>
         </li>
       </router-link>
     </ul>
   </div>
+
 </template>
 
 <script>
@@ -33,28 +35,64 @@ export default {
 }
 
 div {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  justify-content: space-around;
   width: 170px;
+  border-radius: 20px;
 
-  background-color: lightgrey;
+  background-color: white;
 }
 
 ul {
   list-style: none;
   padding-left: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  justify-content: space-around;
 }
 
 li {
-  margin-left: 20px;
-  display: flex;
-  align-items: center;
+  text-align: left;
+ 
 }
 
 h3 {
   text-align: left;
-  margin-left: 20px;
+  color: black;
+ 
+}
+
+.routerLink{
+  text-decoration: none;
 }
 
 p {
   color: black;
+  
 }
+a {
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  border-radius: 20px;
+  
+}
+
+
+a:hover,
+a:active,
+/* a.router-link-active{
+  
+  background-color: rgba(154, 162, 163, 0.966);
+} */
+
+a :hover{
+  background-color: rgba(154, 162, 163, 0.966);
+}
+
+
 </style>

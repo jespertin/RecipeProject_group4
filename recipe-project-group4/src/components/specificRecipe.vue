@@ -1,3 +1,5 @@
+
+
 <template>
     <main v-if="recipe">
         <h1>{{recipe.title}}</h1>
@@ -41,12 +43,12 @@ export default {
 </script>
 
 <style scoped>
+
 * {
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 }
-
 main {
     width: 60vw;
     border: solid 1px;
@@ -57,47 +59,40 @@ main {
     margin: 0 auto;
     flex-wrap: wrap;
 }
-
 ul {
     list-style: none;
     padding: 0;
 }
-
 img {
     width: 20vw;
     border-radius: 20px;
 }
-
 #infoAndDescriptionContainer {
     width: 50%;
     font-size: 1.3em;
 }
+
 
 #info {
     background-color: rgba(154, 162, 163, 0.966);
     border-radius: 5px;
     padding: 5px;
 }
-
 #pictureContainer {
     width: 20vw;
 }
-
 section {
     width: 50%;
 }
-
 h1 {
     width: 100%;
     text-align: center;
     font-size: 2em;
     text-decoration: underline;
 }
-
 #ingredients {
     width: 30%;
 }
-
 #ingredientsAndInstructions {
     display: flex;
     flex-direction: row;
@@ -105,15 +100,14 @@ h1 {
     align-items: space-around;
     font-size: 1em;
 }
-
 h3 {
     text-align: center;
     border-bottom: 2px solid;
 }
-
 li {
     background-color: rgba(154, 162, 163, 0.966);
     border-radius: 5px;
     padding: 5px;
 }
+
 </style>
