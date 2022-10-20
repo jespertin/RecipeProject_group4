@@ -5,14 +5,12 @@ import Comments from '../components/comments.vue';
 </script>
 
 <template>
-    <Transition name="transitionCategory">
     <div>
     <h1>This is the recipe page</h1>
     <Comments />
     <p v-if="recipe">{{recipe.title}}</p>
     <p v-if="recipe">{{recipe.description}}</p>
 </div>
-</Transition>
 </template>
 
 <script>

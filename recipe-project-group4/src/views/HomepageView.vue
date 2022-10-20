@@ -9,10 +9,9 @@
   <categories-nav-list></categories-nav-list>
   <recipe-items :mydata="apiData"></recipe-items>
 
-  <div>
-    <b-form-rating v-model="value"></b-form-rating>
-    <p class="mt-2">Value: {{ value }}</p>
-  </div>
+
+  <h2>Half Stars</h2>
+  <star-rating :increment="0.5"></star-rating>
 
 
   <footer>
@@ -21,11 +20,13 @@
     </div>
   </footer>
 </div>
+
 </template>
 
 <script>
 import RecipeItems from "../components/recipeItems.vue";
 import CategoriesNavList from "../components/categoriesNavList.vue";
+
 export default {
   components: {
     RecipeItems,
