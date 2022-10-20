@@ -42,14 +42,19 @@ export default {
     eventHandlerMethod(value) {
       this.recipesList = value;
     },
-  },
 
-  data() {
-    return {
-      recipesList: null,
-    };
-  },
-};
+    data() {
+        return {
+            recipesList: null
+        }
+    },
+    watch: {
+        mydata(){
+            this.recipesList = this.mydata
+        }
+    }
+}
+
 </script>
 
 <style scoped>
