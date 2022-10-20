@@ -1,7 +1,12 @@
 <template>
+
+    <div>
+        <input type="text" v-model="searchString" placeholder="Search"/>
+
+    </div>
   <main v-if="mydata">
     
-    <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
+    <router-link v-for="recipe in filterRecipeList" :to="'/recipe/' + recipe._id">
       <div class="divHover">
       <div class="receptDiv">
         <h1>{{ recipe.title }}</h1>
@@ -26,6 +31,17 @@ export default {
   props: {
     mydata: Array,
   },
+
+  data() {
+        return {
+            searchString: "",
+        }
+    },
+    computed: {
+        filterRecipeList() {
+            return this.mydata.filter(recipe => recipe.title.toLowerCase().indexOf(this.searchString.toLowerCase()) !==  -1) 
+        }
+    }
 };
 </script>
 
@@ -131,7 +147,8 @@ ul {
 <!-- <template>
     <ul v-if="mydata">
         <div>
-            <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
+            <input type="text" v-model="searchString" placeholder="Search"/>
+            <router-link v-for="recipe in filterRecipeList" :to="'/recipe/' + recipe._id">
                 <li>
                     <h3 id="Title">{{recipe.title}}</h3>
                     <img id="FoodImage" :src="recipe.imageUrl" alt="pictureOfFood">
@@ -146,11 +163,23 @@ ul {
 
 </template>
 <script>
+import FilterRecipes from "./filterRecipes.vue";
 
 export default {
     name: "RecipeItems",
     props: {
         mydata: Array
+    },
+    components: { FilterRecipes },
+    data() {
+        return {
+            searchString: "",
+        }
+    },
+    computed: {
+        filterRecipeList() {
+            return this.mydata.filter(recipe => recipe.title.toLowerCase().indexOf(this.searchString.toLowerCase()) !==  -1) 
+        }
     }
 }
 </script>
