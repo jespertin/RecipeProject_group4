@@ -22,15 +22,18 @@
 
     <div>
       <ul v-if="commentsData">
-        <div v-for="comment in commentsData">
+        <div v-for="comment in commentsData.slice(0,commentLimit)" :key="comment.name">
           <div class="containerCommentInput" id="commentSingleDiv">
             <p id="commentNameField">{{comment.name}}</p>
             <p id="commentTextField">{{comment.comment}}</p>
             <!--<li>{{comment.date}}</li>-->
           </div>
         </div>
+        <button v-if="Object.keys(commentsData).length > commentLimit" v-on:click="loadMoreComments()"> Load more
+          comments</button>
       </ul>
     </div>
+
   </div>
 </template>
 
@@ -40,25 +43,31 @@ export default {
   data() {
     return {
 
+      commentLimit: 5,
       newCommentDate: null,
       newCommentText: null,
       newCommentName: null,
       commentsData: null,
       commentSent: false,
-      toggleDisabled: false
+      toggleDisabled: false,
 
     }
   },
+
   created() {
-
-
-    fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/633bf45591dc8ff8a20cfaf4/comments")
-      .then(response => response.json())
-      .then(data => this.commentsData = data)
-      .catch(error => console.log("error: " + error));
+    this.loadCommentData()
   },
 
+
   methods: {
+
+    loadCommentData() {
+      fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId + "/comments")
+        .then(response => response.json())
+        .then(data => this.commentsData = data)
+        .catch(error => console.log("error: " + error));
+
+    },
 
     addComment() {
 
@@ -70,7 +79,7 @@ export default {
         this.newCommentDate = new Date().toLocaleString('se-SE', options)
         console.log(this.newCommentDate)
 
-        fetch('https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/633bf45591dc8ff8a20cfaf4/comments', {
+        fetch('https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/' + this.$route.params.recipeId + "/comments", {
           method: 'POST',
           body: JSON.stringify({
             comment: this.newCommentText,
@@ -90,10 +99,17 @@ export default {
       this.newCommentText = null;
       this.newCommentDate = null;
 
+      this.loadCommentData()
+
       this.toggleDisabled = false
     },
 
-    testFunction() {
+
+    loadMoreComments() {
+      this.commentLimit += 5
+    },
+    testFunctionDate() {
+
 
       //      this.toggleDisabled = true
       /*       const options = { day: 'numeric', month: 'long', year: 'numeric' }
@@ -107,12 +123,12 @@ export default {
 }
 </script>
 <style scoped>
-
-.containerCommentSectionWrapper{
+.containerCommentSectionWrapper {
   display: flex;
   flex-direction: column;
-  width: 50%;  
+  width: 50%;
 }
+
 .containerCommentInput {
   display: flex;
   flex-direction: row;
