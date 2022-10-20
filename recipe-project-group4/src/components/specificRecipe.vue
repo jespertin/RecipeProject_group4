@@ -44,7 +44,7 @@ export default {
 
 <style scoped>
 *{
-    font-size: 100%;
+    font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 }

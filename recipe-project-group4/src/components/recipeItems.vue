@@ -1,47 +1,54 @@
 <template>
 
-    <div>
-        <input type="text" v-model="searchString" placeholder="Search"/>
-
-    </div>
   <main v-if="mydata">
-    
-    <router-link v-for="recipe in filterRecipeList" :to="'/recipe/' + recipe._id">
+  
+    <div>
+      <FilterRecipes :recipes="mydata" @filtered-data="eventHandlerMethod"/>
+    <router-link
+      v-for="recipe in recipesList"
+      :to="'/recipe/' + recipe._id"
+    >
       <div class="divHover">
-      <div class="receptDiv">
-        <h1>{{ recipe.title }}</h1>
-        <div class="pictureAndDescription">
-         <p class="description" id="info">{{ recipe.description }}</p>
-         <div class="imgSize">
-            <img :src="recipe.imageUrl" alt="pictureOfFood" />
+        <div class="receptDiv">
+          <h1>{{ recipe.title }}</h1>
+          <div class="pictureAndDescription">
+            <p class="description" id="info">{{ recipe.description }}</p>
+            <div class="imgSize">
+              <img :src="recipe.imageUrl" alt="pictureOfFood" />
+            </div>
           </div>
+          <p id="pStyle">Rating: {{ recipe.avgRating }}</p>
+          <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
+          <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
         </div>
-        <p id="pStyle">Rating: {{ recipe.avgRating }}</p>
-        <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
-        <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
       </div>
-    </div>
     </router-link>
- 
+  </div>
   </main>
 </template>
 <script>
+import FilterRecipes from "./filterRecipes.vue";
+
 export default {
   name: "RecipeItems",
+
   props: {
     mydata: Array,
   },
 
-  data() {
-        return {
-            searchString: "",
-        }
+  components: { FilterRecipes },
+
+  methods: {
+    eventHandlerMethod(value) {
+      this.recipesList = value;
     },
-    computed: {
-        filterRecipeList() {
-            return this.mydata.filter(recipe => recipe.title.toLowerCase().indexOf(this.searchString.toLowerCase()) !==  -1) 
-        }
-    }
+  },
+
+  data() {
+    return {
+      recipesList: null,
+    };
+  },
 };
 </script>
 
@@ -52,24 +59,21 @@ export default {
   font-size: 105%;
 }
 
-#pStyle{
-  
-    background-color: rgba(154, 162, 163, 0.966);
-    border-radius: 5px;
-    padding: 5px;
+#pStyle {
+  background-color: rgba(154, 162, 163, 0.966);
+  border-radius: 5px;
+  padding: 5px;
 }
 
-
-.imgSize{
-    width: 300px;
+.imgSize {
+  width: 300px;
   height: 300px;
-
 }
 
 img {
-max-width: 100%;  
-height: 100%; 
-border-radius: 20px;
+  max-width: 100%;
+  height: 100%;
+  border-radius: 20px;
 }
 
 a {
@@ -79,8 +83,6 @@ a {
 /* a:link :hover {
   background-color: lightgray;
 } */
-
-
 
 .description {
   width: 40%;
@@ -110,14 +112,14 @@ a {
   background-color: white;
 }
 
-.divHover :hover{
+.divHover :hover {
   background-color: lightgray;
 }
 
-#info{
-    background-color: rgba(154, 162, 163, 0.966);
-    border-radius: 5px;
-    padding: 5px;
+#info {
+  background-color: rgba(154, 162, 163, 0.966);
+  border-radius: 5px;
+  padding: 5px;
 }
 
 h1 {
@@ -126,7 +128,6 @@ h1 {
   font-size: 150%;
   color: black;
   border-radius: 20px;
-
 }
 
 main {
@@ -140,78 +141,5 @@ main {
 ul {
   list-style: none;
 }
-
-
 </style>
 
-<!-- <template>
-    <ul v-if="mydata">
-        <div>
-            <FilterRecipes :recipes="mydata" @filtered-data="eventHandlerMethod" />
-            <router-link v-for="recipe in recipesList" :to="'/recipe/' + recipe._id">
-                <li>
-                    <h3 id="Title">{{recipe.title}}</h3>
-                    <img id="FoodImage" :src="recipe.imageUrl" alt="pictureOfFood">
-                    <p id="Description">{{recipe.description}}</p>
-                    <p id="Rating">Rating: {{recipe.avgRating}}</p>
-                    <p id="IngredientAmount">Ingredients: {{recipe.ingredients.length}}</p>
-                    <p id="TimeToCook">Time: {{recipe.timeInMins}}min</p>
-                </li>
-            </router-link>
-        </div>
-    </ul>
-
-</template>
-<script>
-import FilterRecipes from "./filterRecipes.vue";
-export default {
-    name: "RecipeItems",
-    props: {
-        mydata: Array
-    },
-    components: { FilterRecipes },
-    methods: {
-        eventHandlerMethod(value) {
-            this.recipesList = value
-        }
-    },
-    data() {
-        return {
-            recipesList: null,
-        }
-    }
-}
-</script>
-
-<style scoped>
-* {
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-}
-ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-}
-img {
-    width: 10em;
-}
-li {
-    border: 1px solid;
-    margin-bottom: 10px;
-    width: 30vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-direction: row;
-    flex-wrap: wrap;
-    background-color: cadetblue;
-}
-#Description {
-    width: 70%;
-}
-#Title {
-    width: 100%;
-    align-self: center;
-}
-
-</style> -->
