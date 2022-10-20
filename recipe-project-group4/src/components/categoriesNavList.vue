@@ -3,7 +3,7 @@
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
-      <router-link  v-for="category in apiData" :to="'/category/' + category.name">
+      <router-link class="routerLink"  v-for="category in apiData" :to="'/category/' + category.name">
         <li>
           <p>{{ category.name }} ({{ category.count }})</p>
         </li>
@@ -56,8 +56,13 @@ h3 {
   margin-left: 20px;
 }
 
+.routerLink{
+  text-decoration: none;
+}
+
 p {
   color: black;
+  
 }
 a {
   text-decoration: none;

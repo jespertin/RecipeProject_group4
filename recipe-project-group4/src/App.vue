@@ -14,8 +14,8 @@
 
 <script >
 import { RouterLink, RouterView } from 'vue-router'
-
 </script>
+<<<<<<< HEAD
 
 <style>
 #footer-container {
@@ -111,3 +111,6 @@ transform: translateY(30px)
 
 </style>
     
+=======
+    
+>>>>>>> 46c1ed36d9ea48f936daa2f463de16f37ee4ad31
