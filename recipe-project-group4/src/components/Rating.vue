@@ -11,9 +11,9 @@
           
         </div>
       
-        <div>
-          <button v-on:click="addRating()" >Submit Rating</button>
-        </div>
+        
+          <button  id="btn" v-on:click="addRating()" >Submit Rating</button>
+        
       </form>
    
   
@@ -85,6 +85,23 @@ methods: {
   padding: 1rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+ #btn{
+  margin-top: 5%;
+  background: #11cdd4;
+   
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+
+#btn:hover {
+    background: #30e3cb;
+    text-decoration: none;
 }
 
 </style>
