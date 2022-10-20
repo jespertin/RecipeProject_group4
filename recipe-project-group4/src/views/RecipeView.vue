@@ -5,12 +5,13 @@ import Comments from '../components/comments.vue';
 </script>
 
 <template>
-
-
-    <h1>This is the recipe page</h1>
-    <SpecificRecipe :recipe="recipe"></SpecificRecipe>
-    <Comments />
-    
+    <router-link id="buttonHome" to="/">
+        <p>Tillfällig home knapp</p>
+    </router-link>
+    <div id="flexContainer">
+        <SpecificRecipe :recipe="recipe"></SpecificRecipe>
+        <Comments />
+    </div>
 </template>
 
 <script>
@@ -32,3 +33,14 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+
+/* La bara till en flex container för att kolla hur det såg ut centrerat */
+#flexContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+</style>

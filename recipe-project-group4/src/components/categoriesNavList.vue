@@ -1,9 +1,9 @@
 <template>
- 
+
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
-      <router-link class="routerLink"  v-for="category in apiData" :to="'/category/' + category.name">
+      <router-link class="routerLink" v-for="category in apiData" :to="'/category/' + category.name">
         <li>
           <p>{{ category.name }} ({{ category.count }})</p>
         </li>
@@ -56,43 +56,42 @@ ul {
 
 li {
   text-align: left;
- 
+
 }
 
 h3 {
   text-align: left;
   color: black;
- 
+
 }
 
-.routerLink{
+.routerLink {
   text-decoration: none;
 }
 
 p {
   color: black;
-  
+
 }
+
 a {
   text-decoration: none;
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
   border-radius: 20px;
-  
+
 }
 
 
 a:hover,
 a:active,
-/* a.router-link-active{
-  
-  background-color: rgba(154, 162, 163, 0.966);
-} */
+a.router-link-active {
 
-a :hover{
   background-color: rgba(154, 162, 163, 0.966);
 }
 
-
+a :hover {
+  background-color: rgba(154, 162, 163, 0.966);
+}
 </style>

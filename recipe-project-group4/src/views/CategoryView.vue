@@ -1,21 +1,22 @@
 <template>
     <div>
-    <header>
-    <h1 id="headerCategoryView">{{this.$route.params.categoryName}}</h1>
-    <router-link id="buttonHome" to="/"><h2>Receptsajten</h2></router-link>
-</header>
+        <header>
+            <router-link id="buttonHome" to="/">
+                <h2>Receptsajten</h2>
+            </router-link>
+            <h1 id="headerCategoryView">{{this.$route.params.categoryName}}</h1>
+        </header>
+
+        <categories-nav-list></categories-nav-list>
+        <recipe-items :mydata="apiData"></recipe-items>
 
 
-    <categories-nav-list></categories-nav-list>
-    <recipe-items :mydata="apiData"></recipe-items>
-   
-
-    <footer>
-    <div id="footer-container">
-      <p id="copyright">© A Group 4 Production.</p>
+        <footer>
+            <div id="footer-container">
+                <p id="copyright">© A Group 4 Production.</p>
+            </div>
+        </footer>
     </div>
-  </footer>
-</div>
 </template>
 
 <script>
@@ -57,34 +58,32 @@ export default {
 
 <style scoped>
 #buttonHome {
-    
-background: #19b9bf;
- 
-  margin-inline-end: 19%;
-  border-radius: 20px;
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
-  font-size: 100%;
-  padding: 10px 15px 10px 15px;
-  text-decoration: none;
-  
+
+    background: #19b9bf;
+
+    margin-inline-end: 19%;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    font-size: 100%;
+    padding: 10px 15px 10px 15px;
+    text-decoration: none;
+
 }
 
 #buttonHome:hover {
-background: #11cdd4;
+    background: #11cdd4;
 
-  text-decoration: none;
+    text-decoration: none;
 }
 
 a {
-max-width: 13%;
+    max-width: 13%;
 
 }
 
 #headerCategoryView {
- margin-right: 19%;
-    
+    margin-right: 19%;
+
 }
-
-
 </style>
