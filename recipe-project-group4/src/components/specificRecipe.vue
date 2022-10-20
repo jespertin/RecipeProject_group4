@@ -3,8 +3,8 @@
         <h1>{{recipe.title}}</h1>
         <div id="infoAndDescriptionContainer">
             <p id="description">{{recipe.description}}</p>
-            <p id="info">Rating: {{recipe.avgRating}} | {{recipe.ingredients.length}} Ingredients |
-                {{recipe.timeInMins}}min</p>
+            <p id="info">Rating: {{recipe.avgRating}} | {{recipe.ingredients.length}} Ingredients
+                |{{recipe.timeInMins}}min</p>
         </div>
         <div id="pictureContainer">
             <img :src="recipe.imageUrl" alt="pictureOfFood">
@@ -41,8 +41,8 @@ export default {
 </script>
 
 <style scoped>
-*{
-    font-size: 100%;
+* {
+    font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 }
@@ -73,7 +73,7 @@ img {
     font-size: 1.3em;
 }
 
-#info{
+#info {
     background-color: rgba(154, 162, 163, 0.966);
     border-radius: 5px;
     padding: 5px;
@@ -116,5 +116,4 @@ li {
     border-radius: 5px;
     padding: 5px;
 }
-
 </style>
