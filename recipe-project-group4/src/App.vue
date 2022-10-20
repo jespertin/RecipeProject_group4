@@ -1,7 +1,13 @@
 
 
 <template>
-<RouterView />
+    <RouterView v-slot="slotProps">
+        <Transition name="routeTransition" mode="out-in">
+            <component :is="slotProps.Component"></component>
+        </Transition>
+            
+    </RouterView>
+
     
     
 </template>
@@ -42,26 +48,25 @@ h1 {
     font-family: 'Merriweather', serif;;
     font-size: 2 rem;
     font-weight: bold;
-    flex: 2;
-    text-align: left;
+    text-align: center;
+    flex: 1;
 
 } 
 h2 {
     color: #e8eeee;
     margin: 0% auto 0 auto;
     font-family: 'Merriweather', serif;;
-    font-size: 3 rem;
     font-weight: bold;
     flex: 1;
-    text-align: left;
+    text-align: center;
 }
 header {
   width: 100%;
-  height: 5 rem;
-  padding: 2% 10%;
+  height: 4 rem;
+  padding: 2% 5%;
   display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
+  justify-content: center;
+  align-items: center;
   background-color:   #19b9bf;
   
  
@@ -74,6 +79,33 @@ h3 {
 
 
 }
+
+.routeTransition-enter-from {
+opacity: 0;
+transform: translateY(-30px)
+
+}
+
+.routeTransition-leave-to {
+    opacity: 0;
+transform: translateY(30px)
+}
+
+.routeTransition-enter-active {
+ transition: all 0.3s ease-out;
+}
+.routeTransition-leave-active {
+ transition: all 0.3s ease-in;
+}
+
+.routeTransition-enter-to,
+.routeTransition-leave-from {
+
+    opacity: 1;
+    transform: translateY(0)
+
+}
+
 
 
 </style>

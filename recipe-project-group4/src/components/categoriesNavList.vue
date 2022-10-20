@@ -1,5 +1,5 @@
 <template>
-  
+ 
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
@@ -10,6 +10,7 @@
       </router-link>
     </ul>
   </div>
+
 </template>
 
 <script>
@@ -93,22 +94,5 @@ a :hover{
   background-color: rgba(154, 162, 163, 0.966);
 }
 
-#buttonHome {
 
-  background: #11cdd4;
-   
-    border-radius: 20px;
-    font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
-    font-size: 25px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none;
-    margin-top: 1%;
-}
-
-#buttonHome:hover {
-  background: #30e3cb;
-  
-    text-decoration: none;
-}
 </style>
