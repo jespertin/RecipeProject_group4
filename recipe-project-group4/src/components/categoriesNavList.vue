@@ -1,5 +1,5 @@
 <template>
-  <RouterLink id="buttonHome" to="/">Startsida</RouterLink>
+  
   <div>
     <h3>Kategorier</h3>
     <ul v-if="apiData">
