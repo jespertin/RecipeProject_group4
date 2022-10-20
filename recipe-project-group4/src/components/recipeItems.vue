@@ -1,10 +1,8 @@
 <template>
-    <!-- Todo: filterRecipeList metoden funkar..hur? Läs om hur indexOf metoden på String funkar, samt varför !== -1 ?-->
     <ul v-if="mydata">
         <div>
-            <!-- <filter-recipes :recipes="mydata" @emit-tester="handleCustomChange"></filter-recipes> -->
-            <input type="text" v-model="searchString" placeholder="Search"/>
-            <router-link v-for="recipe in filterRecipeList" :to="'/recipe/' + recipe._id">
+            <FilterRecipes :recipes="mydata" @filtered-data="eventHandlerMethod" />
+            <router-link v-for="recipe in recipesList" :to="'/recipe/' + recipe._id">
                 <li>
                     <h3 id="Title">{{recipe.title}}</h3>
                     <img id="FoodImage" :src="recipe.imageUrl" alt="pictureOfFood">
@@ -20,21 +18,20 @@
 </template>
 <script>
 import FilterRecipes from "./filterRecipes.vue";
-
 export default {
     name: "RecipeItems",
     props: {
         mydata: Array
     },
     components: { FilterRecipes },
-    data() {
-        return {
-            searchString: "",
+    methods: {
+        eventHandlerMethod(value) {
+            this.recipesList = value
         }
     },
-    computed: {
-        filterRecipeList() {
-            return this.mydata.filter(recipe => recipe.title.toLowerCase().indexOf(this.searchString.toLowerCase()) !==  -1) 
+    data() {
+        return {
+            recipesList: null,
         }
     }
 }
@@ -44,17 +41,14 @@ export default {
 * {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-
 ul {
     list-style: none;
     display: flex;
     justify-content: center;
 }
-
 img {
     width: 10em;
 }
-
 li {
     border: 1px solid;
     margin-bottom: 10px;
@@ -66,14 +60,11 @@ li {
     flex-wrap: wrap;
     background-color: cadetblue;
 }
-
 #Description {
     width: 70%;
 }
-
 #Title {
     width: 100%;
     align-self: center;
 }
-
 </style>
