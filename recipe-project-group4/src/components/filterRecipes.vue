@@ -1,30 +1,44 @@
 <template>
-
-<button @click="filterRecipeList">Starts With K</button>
+    <input class="searchBar" type="text" v-model="searchString" :placeholder="searchBarPlaceHolder" />
 </template>
 
 <script>
 export default {
     props: {
-        recipes:{
+        recipes: {
             type: Array,
-            required: true
+            required: true,
+        },
+        searchBarPlaceHolder: {
+            type: String,
+            default: "Search"
         }
     },
-    data(){
-        return{
-            filteredList: null
+    data() {
+        return {
+            searchString: "",
+            resultList: null
         }
     },
-    methods:{
-        filterRecipeList(){
-            this.$emit("emitTester",  this.recipes.filter(recipe => recipe.title.startsWith("K")))
+    methods: {
+        filterBySearchString() {
+            this.resultList = this.recipes.filter(recipe => recipe.title.toLowerCase().indexOf(this.searchString.toLowerCase()) !== -1)
         }
-
+    },
+    watch: {
+        searchString: {
+            handler() {
+                this.filterBySearchString()
+                this.$emit("filteredData", this.resultList)
+            },
+            immediate: true
+        }
     }
 }
 </script>
 
-<style>
-
+<style scoped>
+.searchBar {
+    width: 100%;
+}
 </style>
