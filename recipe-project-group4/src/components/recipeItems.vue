@@ -31,7 +31,12 @@ export default {
     },
     data() {
         return {
-            recipesList: null,
+            recipesList: null
+        }
+    },
+    watch: {
+        mydata(){
+            this.recipesList = this.mydata
         }
     }
 }
