@@ -9,6 +9,11 @@
   <categories-nav-list></categories-nav-list>
   <recipe-items :mydata="apiData"></recipe-items>
 
+  <div>
+    <b-form-rating v-model="value"></b-form-rating>
+    <p class="mt-2">Value: {{ value }}</p>
+  </div>
+
 
   <footer>
     <div id="footer-container">
@@ -29,6 +34,7 @@ export default {
   data() {
     return {
       apiData: null,
+      value: null
     };
   },
   created() {
