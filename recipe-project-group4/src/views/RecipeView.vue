@@ -1,5 +1,16 @@
+<script setup>
+
+import Comments from '../components/comments.vue';
+
+</script>
+
 <template>
-<SpecificRecipe :recipe="recipe"></SpecificRecipe>
+
+
+    <h1>This is the recipe page</h1>
+    <SpecificRecipe :recipe="recipe"></SpecificRecipe>
+    <Comments />
+    
 </template>
 
 <script>
