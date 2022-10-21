@@ -23,6 +23,7 @@
 <script>
 import RecipeItems from "../components/recipeItems.vue";
 import CategoriesNavList from "../components/categoriesNavList.vue";
+
 export default {
   components: {
     RecipeItems,
@@ -31,6 +32,7 @@ export default {
   data() {
     return {
       apiData: null,
+      value: null
     };
   },
   created() {
@@ -42,13 +44,14 @@ export default {
 };
 </script>
 
-<style scoped>
-#componentContainer {
-display: flex;
-justify-content: center;
-margin-top: 20vh;
+<style>
 
-}
+#componentContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
+  }
+
 
 #listContainer {}
 
