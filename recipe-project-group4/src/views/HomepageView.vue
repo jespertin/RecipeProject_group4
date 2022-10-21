@@ -1,12 +1,29 @@
 <template>
-  <h1>This is Homepage</h1>
-  <categories-nav-list></categories-nav-list>
-  <recipe-items :mydata="apiData"></recipe-items>
+  <div>
+    <header>
+      <h1>Receptsajten</h1>
+      <h2>Grupp 4</h2>
+    </header>
+    <div id="componentContainer">
+      <div id="navbarContainer">
+        <categories-nav-list id="categoryMenu" />
+      </div>
+      <div id="listContainer">
+        <recipe-items id="recipeList" :mydata="apiData" />
+      </div>
+    </div>
+    <footer>
+      <div id="footer-container">
+        <p id="copyright">© A Group 4 Production.</p>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
 import RecipeItems from "../components/recipeItems.vue";
 import CategoriesNavList from "../components/categoriesNavList.vue";
+
 export default {
   components: {
     RecipeItems,
@@ -15,6 +32,7 @@ export default {
   data() {
     return {
       apiData: null,
+      value: null
     };
   },
   created() {
@@ -25,3 +43,26 @@ export default {
   },
 };
 </script>
+
+<style>
+
+#componentContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20vh;
+  }
+
+
+#listContainer {}
+
+#navbarContainer {
+  
+}
+
+#categoryMenu {
+  
+}
+
+#recipeList {
+}
+</style>

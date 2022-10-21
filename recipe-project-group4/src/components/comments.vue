@@ -1,5 +1,7 @@
 <template>
 
+  <Rating></Rating>
+
   <div class="containerCommentSectionWrapper">
     <h1>Kommentarer</h1>
     <div>
@@ -41,9 +43,15 @@
 </template>
 
 <script>
+import Rating from './Rating.vue'
+
 
 
 export default {
+
+  components: {
+  Rating
+  },
   data() {
     return {
 
