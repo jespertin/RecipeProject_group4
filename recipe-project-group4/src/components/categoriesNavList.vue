@@ -37,12 +37,11 @@ export default {
 div {
   display: flex;
   flex-direction: column;
-  justify-content: start;
   justify-content: space-around;
   width: 170px;
   border-radius: 20px;
 
-  background-color: white;
+  background-color: rgba(154, 162, 163, 0.966);
 }
 
 ul {
@@ -83,15 +82,14 @@ a {
 
 }
 
-
-a:hover,
-a:active,
 a.router-link-active {
-
-  background-color: rgba(154, 162, 163, 0.966);
+  font-weight: 800;
+  pointer-events: none;
+  cursor: default;
 }
 
-a :hover {
-  background-color: rgba(154, 162, 163, 0.966);
+
+a:hover {
+  text-decoration: underline;
 }
 </style>

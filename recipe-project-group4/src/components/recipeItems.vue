@@ -4,6 +4,9 @@
 
         <div>
             <FilterRecipes :recipes="mydata" @filtered-data="eventHandlerMethod" />
+            <div id="ifListEmpty" v-if="!recipesList.length">
+                <h2>No recipe with that title found</h2>
+            </div>
             <router-link v-for="recipe in recipesList" :to="'/recipe/' + recipe._id">
                 <div class="divHover">
                     <div class="receptDiv">
@@ -143,6 +146,12 @@ main {
 
 ul {
     list-style: none;
+}
+
+#ifListEmpty{
+    
+    text-align: center;
+    font-style: italic;
 }
 </style>
 
