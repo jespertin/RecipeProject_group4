@@ -9,11 +9,6 @@
   <categories-nav-list></categories-nav-list>
   <recipe-items :mydata="apiData"></recipe-items>
 
-
-  <h2>Half Stars</h2>
-  <star-rating :increment="0.5"></star-rating>
-
-
   <footer>
     <div id="footer-container">
       <p id="copyright">© A Group 4 Production.</p>
@@ -30,7 +25,7 @@ import CategoriesNavList from "../components/categoriesNavList.vue";
 export default {
   components: {
     RecipeItems,
-    CategoriesNavList
+    CategoriesNavList,
   },
   data() {
     return {
