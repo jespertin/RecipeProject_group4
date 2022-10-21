@@ -18,10 +18,16 @@
 </template>
 <script>
 
+import Rating from './Rating.vue'
+
 export default {
+    components: {
+        Rating
+    },
     name: "RecipeItems",
     props: {
-        mydata: Array
+        mydata: Array,
+        
     }
 }
 </script>
@@ -65,5 +71,4 @@ li {
     width: 100%;
     align-self: center;
 }
-
 </style>
