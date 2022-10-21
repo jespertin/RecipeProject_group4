@@ -1,21 +1,23 @@
 <template>
   <div>
-  <header>
-    <h1>Receptsajten</h1>
-  <h2>Grupp 4</h2>
-</header>
-
-  
-  <categories-nav-list></categories-nav-list>
-  <recipe-items :mydata="apiData"></recipe-items>
-
-  <footer>
-    <div id="footer-container">
-      <p id="copyright">© A Group 4 Production.</p>
+    <header>
+      <h1>Receptsajten</h1>
+      <h2>Grupp 4</h2>
+    </header>
+    <div id="componentContainer">
+      <div id="navbarContainer">
+        <categories-nav-list id="categoryMenu" />
+      </div>
+      <div id="listContainer">
+        <recipe-items id="recipeList" :mydata="apiData" />
+      </div>
     </div>
-  </footer>
-</div>
-
+    <footer>
+      <div id="footer-container">
+        <p id="copyright">© A Group 4 Production.</p>
+      </div>
+    </footer>
+  </div>
 </template>
 
 <script>
@@ -43,3 +45,16 @@ export default {
 </script>
 
 
+#listContainer {}
+
+#navbarContainer {
+  
+}
+
+#categoryMenu {
+  
+}
+
+#recipeList {
+}
+</style>
