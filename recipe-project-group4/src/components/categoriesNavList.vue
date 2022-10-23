@@ -37,7 +37,7 @@ export default {
 div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex;
   width: 170px;
   border-radius: 20px;
 

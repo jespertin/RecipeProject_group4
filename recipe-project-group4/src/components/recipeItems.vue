@@ -1,13 +1,11 @@
 <template>
 
     <main v-if="mydata">
-
         <div>
-            <FilterRecipes :recipes="mydata" @filtered-data="eventHandlerMethod" />
-            <div id="ifListEmpty" v-if="!recipesList.length">
-                <h2>No recipe with that title found</h2>
+            <div id="ifListEmpty" v-if="!mydata.length">
+                <h2 id="listEmptyText">No recipe with that title found</h2>
             </div>
-            <router-link v-for="recipe in recipesList" :to="'/recipe/' + recipe._id">
+            <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
                 <div class="divHover">
                     <div class="receptDiv">
                         <h1>{{ recipe.title }}</h1>
@@ -27,31 +25,11 @@
     </main>
 </template>
 <script>
-import FilterRecipes from "./filterRecipes.vue";
 
 export default {
     name: "RecipeItems",
-
     props: {
-        mydata: Array,
-    },
-
-    components: { FilterRecipes },
-
-    methods: {
-        eventHandlerMethod(value) {
-            this.recipesList = value;
-        }
-    },
-    data() {
-        return {
-            recipesList: null
-        }
-    },
-    watch: {
-        mydata() {
-            this.recipesList = this.mydata
-        }
+        mydata: Array
     }
 }
 
@@ -149,9 +127,13 @@ ul {
 }
 
 #ifListEmpty{
-    
+    width: 50vw;
     text-align: center;
     font-style: italic;
+}
+
+#listEmptyText{
+    text-align: center;
 }
 </style>
 

@@ -19,6 +19,7 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <style>
+
 #footer-container {
     background-color: #11999E;
     padding-top: 0%;

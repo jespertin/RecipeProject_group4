@@ -6,15 +6,9 @@
       <div class="form-control">
         <!-- <input type="radio" id="rating-great" value="great" name="rating" v-model="chosenRating" />
           <label for="rating-great">Great</label> -->
-        <star-rating
-          
-          id="starRating"
-          @update:rating="setRating"
-          v-on:click="addRating()"
-        ></star-rating>
+        <star-rating id="starRating" @update:rating="setRating" v-on:click="addRating()"></star-rating>
       </div>
 
-      
     </form>
   </div>
 </template>
@@ -36,8 +30,8 @@ export default {
 
       fetch(
         "https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" +
-          this.$route.params.recipeId +
-          "/ratings",
+        this.$route.params.recipeId +
+        "/ratings",
         {
           method: "POST",
           body: JSON.stringify({
