@@ -3,7 +3,7 @@
     <main v-if="mydata">
         <div>
             <div id="ifListEmpty" v-if="!mydata.length">
-                <h2 id="listEmptyText">No recipe with that title found</h2>
+                <h2 id="listEmptyText">Inget recept hittat</h2>
             </div>
             <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
                 <div class="divHover">
@@ -83,7 +83,7 @@ a {
 }
 
 .receptDiv {
-    width: 50vw;
+    width: 40vw;
     border: 1px solid;
 
     margin-bottom: 20px;
@@ -127,7 +127,7 @@ ul {
 }
 
 #ifListEmpty{
-    width: 50vw;
+    width: 40vw;
     text-align: center;
     font-style: italic;
 }

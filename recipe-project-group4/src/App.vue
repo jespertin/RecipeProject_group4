@@ -37,6 +37,10 @@ import { RouterLink, RouterView } from 'vue-router'
     text-align: center;
 }
 
+body {
+    margin: 0;
+}
+
 /* body {
     background-color: #c7e9e9; 
     margin: 0;

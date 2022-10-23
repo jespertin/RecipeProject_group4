@@ -90,6 +90,7 @@ a.router-link-active {
 
 
 a:hover {
-  text-decoration: underline;
+  background: lightgray;
+  border-radius: 0;
 }
 </style>

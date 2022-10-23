@@ -4,7 +4,10 @@
       <router-link id="buttonHome" to="/">
         <h2>Receptsajten</h2>
       </router-link>
-      <h1 id="headerCategoryView">{{ this.$route.params.categoryName }}</h1>
+      <div class="headerCurrentCategory">
+        <h1 v-if="this.$route.params.categoryName" id="headerCategoryView">{{ this.$route.params.categoryName }}</h1>
+        <h1 v-else>Alla recept</h1>
+      </div>
     </header>
 
     <div id="componentContainer">
@@ -110,7 +113,7 @@ export default {
 
 #searchBar {
   align-self: center;
-  width: 100%;
+  width: 40vw;
 }
 
 #buttonHome {
@@ -122,6 +125,7 @@ export default {
   font-size: 100%;
   padding: 10px 15px 10px 15px;
   text-decoration: none;
+  width: 20vw;
 }
 
 #buttonHome:hover {
@@ -138,5 +142,9 @@ a {
 #headerCategoryView {
   margin-right: 19%;
 
+}
+
+.headerCurrentCategory {
+  width: 10vw;
 }
 </style>
