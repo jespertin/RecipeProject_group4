@@ -145,6 +145,6 @@ a {
 }
 
 .headerCurrentCategory {
-  width: 10vw;
+  width: 15vw;
 }
 </style>
