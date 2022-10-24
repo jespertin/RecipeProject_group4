@@ -64,7 +64,6 @@ export default {
       }
     },
     handleSearchEvent(searchResult) {
-      console.log("Event handler in Hompage result")
       this.listOfRecipes = searchResult;
     }
   },
@@ -83,7 +82,6 @@ export default {
   },
   watch: {
     apiData() {
-      console.log("Watcher on HomepageView data")
       this.listOfRecipes = this.apiData
     }
   }
