@@ -45,8 +45,6 @@
 <script>
 import Rating from './Rating.vue'
 
-
-
 export default {
 
   components: {
@@ -203,6 +201,7 @@ textarea {
   width: 90%;
   border: 3px solid lightgray;
   border-radius: 4px;
+  resize: none;
 }
 
 #commentTextInputDiv {
@@ -227,12 +226,12 @@ input {
 }
 
 button {
-  margin-top: 10px;
+  margin-top: 12px;
   background-color: black;
   color: white;
-  font-size: 20px;
-  height: 70%;
-  width: 65%;
+  font-size: 14px;
+  height: 55%;
+  width: 75%;
   border-radius: 40px;
   cursor: pointer;
 }
@@ -252,6 +251,10 @@ button {
 }
 #loadMoreCommentsButton{
   font-size: 12px;
+  background-color: white;
+  color: black;
+  border-style: hidden;
+  font-weight: bold;
 }
 
 </style>
