@@ -49,17 +49,19 @@ export default {
     border: 1px solid grey;
     border-radius: 20px;
     height: 30px;
-    width: 40vw;
+    width: 45rem;
     padding: 2px 23px 2px 30px;
     outline: 0;
     background-color: #f5f5f5;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .wrapper {
     position: relative;
     display: flex;
     min-width: 100px;
+    padding-bottom: 5px;
 }
 
 .search-icon {
@@ -73,5 +75,6 @@ export default {
 .searchBar:hover,
 .searchBar:focus {
     background-color: white;
+    border: 2px solid black;
 }
 </style>

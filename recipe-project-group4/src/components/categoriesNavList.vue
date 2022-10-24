@@ -41,12 +41,12 @@ div {
   width: 170px;
   border-radius: 20px;
 
-  background-color: rgba(154, 162, 163, 0.966);
+  background-color: rgba(190, 232, 238, 0.966);
 }
 
 ul {
   list-style: none;
-  padding-left: 0%;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: start;

@@ -39,6 +39,12 @@ import { RouterLink, RouterView } from 'vue-router'
 
 body {
     margin: 0;
+    background-color: #FFFAF0;
+}
+
+html {
+    overflow-y: scroll;
+    font-size: 100%;
 }
 
 /* body {

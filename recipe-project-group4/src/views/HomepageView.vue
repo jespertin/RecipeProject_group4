@@ -1,5 +1,5 @@
 <template>
-  <div v-if="apiData">
+  <div id="mainContainer" v-if="apiData">
     <header>
       <router-link id="buttonHome" to="/">
         <h2>Receptsajten</h2>
@@ -89,10 +89,13 @@ export default {
 </script>
 
 <style scoped>
+#mainContainer {
+}
+
 #componentContainer {
   display: flex;
   justify-content: center;
-  margin-top: 20vh;
+  margin-top: 40px;
   flex-direction: row;
 }
 
@@ -111,7 +114,6 @@ export default {
 
 #searchBar {
   align-self: center;
-  width: 40vw;
 }
 
 #buttonHome {

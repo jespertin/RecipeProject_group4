@@ -8,12 +8,10 @@
             <router-link v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
                 <div class="divHover">
                     <div class="receptDiv">
-                        <h1>{{ recipe.title }}</h1>
+                        <h1 id="recipeTitle">{{ recipe.title }}</h1>
                         <div class="pictureAndDescription">
                             <p class="description" id="info">{{ recipe.description }}</p>
-                            <div class="imgSize">
-                                <img :src="recipe.imageUrl" alt="pictureOfFood" />
-                            </div>
+                            <img :src="recipe.imageUrl" alt="pictureOfFood" />
                         </div>
                         <p id="pStyle">Rating: {{ recipe.avgRating }}</p>
                         <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
@@ -39,24 +37,21 @@ export default {
 * {
     font-family: "Courier New", Courier, monospace;
     font-weight: 700;
-    font-size: 105%;
+    font-size: 1.2rem;
 }
 
 #pStyle {
-    background-color: rgba(154, 162, 163, 0.966);
+    background-color: rgba(190, 232, 238, 0.966);
     border-radius: 5px;
     padding: 5px;
 }
 
-.imgSize {
-    width: 300px;
-    height: 300px;
-}
-
 img {
-    max-width: 100%;
-    height: 100%;
+    height: 13rem;
+    width: 13rem;
     border-radius: 20px;
+    margin: 0;
+    border: solid 1px;
 }
 
 a {
@@ -69,23 +64,26 @@ a {
 } */
 
 .description {
-    width: 40%;
-    height: auto;
+    align-self: flex-start;
+    width: 25rem;
+    height: 13rem;
+    overflow-y: auto;
+    border: solid 1px;
 }
 
 .pictureAndDescription {
     width: 100%;
-
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+
 }
 
 .receptDiv {
-    width: 40vw;
+    width: 45rem;
+    height: 25rem;
     border: 1px solid;
-
     margin-bottom: 20px;
     display: flex;
     flex-direction: row;
@@ -101,15 +99,14 @@ a {
 }
 
 #info {
-    background-color: rgba(154, 162, 163, 0.966);
+    background-color: rgba(204, 220, 222, 0.966);
     border-radius: 5px;
-    padding: 5px;
+
 }
 
 h1 {
     text-align: center;
     text-decoration: underline;
-    font-size: 150%;
     color: black;
     border-radius: 20px;
 }
@@ -126,14 +123,21 @@ ul {
     list-style: none;
 }
 
-#ifListEmpty{
+#ifListEmpty {
     width: 40vw;
     text-align: center;
     font-style: italic;
 }
 
-#listEmptyText{
+#listEmptyText {
     text-align: center;
+}
+
+#recipeTitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 1.7rem;
 }
 </style>
 
