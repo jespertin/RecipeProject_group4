@@ -9,13 +9,14 @@
 
       <div v-else class="containerCommentInput">
         <div id="commentTextInputDiv">
-          <textarea placeholder="Skriv kommentar här" name="newCommentText" v-model="newCommentText"></textarea>
+          <textarea placeholder="Skriv din kommentar" name="newCommentText" v-model="newCommentText"
+             v-on:input="toggleDisable()" ></textarea>
         </div>
         <div id="nameInputDiv">
-          <input placeholder="Ditt namn" name="newCommentName" v-model="newCommentName">
+          <input placeholder="Ditt namn" name="newCommentName" v-model="newCommentName"  v-on:input="toggleDisable()">
         </div>
         <div id="sendButtonDiv">
-          <button v-bind:disabled="toggleDisabled" v-on:click="addComment()"> Skicka </button>
+          <button v-bind:disabled="isDisabled" v-on:click="addComment()"> Skicka </button>
         </div>
 
       </div>
@@ -23,7 +24,7 @@
 
     <div>
       <ul v-if="dataArray">
-        <div v-for="comment in dataArray.slice(0,commentLimit)" :key="comment.name">
+        <div v-for="comment in dataArray.slice(0,commentLimit)" :key="comment.id">
           <div class="containerCommentInput" id="commentSingleDiv">
             <p id="commentNameField">{{comment.name}}</p>
             <p id="commentDateField">{{comment.createdAt}}</p>
@@ -31,7 +32,8 @@
           </div>
         </div>
         <div id="loadMoreCommentsButtonDiv">
-          <button id = "loadMoreCommentsButton" v-if="Object.keys(commentsData).length > commentLimit" v-on:click="loadMoreComments()"> Load more
+          <button id="loadMoreCommentsButton" v-if="Object.keys(commentsData).length > commentLimit"
+            v-on:click="loadMoreComments()"> Load more
             comments</button>
         </div>
 
@@ -48,18 +50,18 @@ import Rating from './Rating.vue'
 export default {
 
   components: {
-  Rating
+    Rating
   },
   data() {
     return {
 
       commentLimit: 5,
       newCommentDate: null,
-      newCommentText: null,
-      newCommentName: null,
+      newCommentText: "",
+      newCommentName: "",
       commentsData: null,
       commentSent: false,
-      toggleDisabled: false,
+      isDisabled: true,
       dataArray: null,
 
     }
@@ -69,7 +71,7 @@ export default {
     commentsData() {
       this.convertCommentDataToArray()
     },
-    
+
   },
 
   created() {
@@ -79,7 +81,14 @@ export default {
 
   methods: {
 
-   
+    toggleDisable() {
+
+      if (this.newCommentText.length > 0 && this.newCommentName.length > 0) 
+        this.isDisabled = false
+      else 
+        this.isDisabled = true
+    },
+
     convertCommentDataToArray() {
 
       this.dataArray = Object.keys(this.commentsData).map((id) => { return this.commentsData[id] })
@@ -105,9 +114,9 @@ export default {
 
     addComment() {
 
-      this.toggleDisabled = true
+      this.isDisabled = true
 
-      if (this.newCommentName != null && this.newCommentName.length < 36 && this.newCommentText != null && this.newCommentText.length < 1000) {
+      if (this.newCommentName.length > 0 && this.newCommentName.length < 36 && this.newCommentText.length > 0 && this.newCommentText.length < 1000) {
 
         fetch('https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/' + this.$route.params.recipeId + "/comments", {
           method: 'POST',
@@ -118,7 +127,7 @@ export default {
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
-        }).then (() => {this.loadCommentData()})
+        }).then(() => { this.loadCommentData() })
 
         this.commentSent = true
       }
@@ -129,7 +138,7 @@ export default {
       this.newCommentText = null;
       this.newCommentDate = null;
 
-      this.toggleDisabled = false
+      this.isDisabled = false
     },
 
 
@@ -144,7 +153,7 @@ export default {
 .containerCommentSectionWrapper {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 60%;
 
 }
 
@@ -153,7 +162,7 @@ export default {
   flex-direction: row;
   flex-wrap: wrap;
   width: 100%;
-  word-break: break-all;
+  word-break: break-word;
 
 }
 
@@ -174,14 +183,14 @@ ul {
 
 
 #commentNameField {
-  flex-basis: 60%;
+  flex-basis: 65%;
   padding-left: 30px;
   font-size: 18px;
 
 }
 
 #commentDateField {
-  flex-basis: 15%;
+  flex-basis: 22%;
   padding-left: 30px;
   font-size: 12px;
   margin-top: 22px;
@@ -231,9 +240,17 @@ button {
   color: white;
   font-size: 14px;
   height: 55%;
-  width: 75%;
+  width: 70%;
   border-radius: 40px;
   cursor: pointer;
+}
+
+button:disabled {
+  background-color: lightgray;
+  border-style: solid;
+  border-color: lightgray;
+  color:gray;
+  cursor: auto;
 }
 
 #sendButtonDiv {
@@ -245,16 +262,16 @@ button {
 #loadMoreCommentsButtonDiv {
   margin-top: 40px;
   margin-bottom: 40px;
-  margin-left: 25%;
-  align-self: center;
+  margin-left: 30%;
   width: 60%;
 }
-#loadMoreCommentsButton{
+
+#loadMoreCommentsButton {
   font-size: 12px;
   background-color: white;
   color: black;
   border-style: hidden;
   font-weight: bold;
+  width: 50%;
 }
-
 </style>
