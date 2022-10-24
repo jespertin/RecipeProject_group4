@@ -7,13 +7,16 @@
       <div class="form-control">
         <!-- <input type="radio" id="rating-great" value="great" name="rating" v-model="chosenRating" />
           <label for="rating-great">Great</label> -->
-        <star-rating :increment="0.5" id="starRating" v-model:read-only="chosenStar" @update:rating="setRating">
+        <star-rating id="starRating" @update:rating="setRating" v-on:click="addRating()">
         </star-rating>
+        <!-- v-bind:rating-message="ratingMessage" v-bind:star-text="starText" -->
+        <div class="tyComment">
+          <p v-if="chosenRating != '`'">{{ratingMessage}}</p>
+          <h2 v-if="chosenRating != '`'">{{starText}}</h2>
+        </div>
 
       </div>
-      <button id="btn" v-on:click="addRating()">Submit Rating</button>
     </form>
-
   </div>
 
 </template>
@@ -25,14 +28,22 @@ export default {
   components: {
     StarRating
   },
+  data() {
+      return {
+        chosenRating: null,
+        ratingMessage: 'Du gav receptet:',
+        starText: 'Stjärnor'
+      };
+    },
 
   methods: {
     setRating(rating) {
       this.chosenRating = rating;
     },
+    // props: ['ratingMessage', 'starText'],
     addRating() {
-      this.chosenStar = true
       console.log(this.chosenRating)
+
 
       fetch('https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/' + this.$route.params.recipeId + "/ratings", {
         method: 'POST',
@@ -42,23 +53,8 @@ export default {
         headers: {
           'Content-type': 'application/json; charset=UTF-8',
         },
-
       })
-
     },
-    data() {
-      return {
-        chosenRating: null,
-
-      };
-    },
-    /*     created() {
-          fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes")
-            .then((response) => response.json())
-            .then((data) => (this.apiData = data))
-            .catch((error) => console.log("error: " + error));
-        }, 
-      };*/
   }
 }
 </script>
@@ -83,21 +79,22 @@ h2 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-#btn {
-  margin-top: 5%;
-  background: #11cdd4;
-
-  border-radius: 20px;
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-#btn:hover {
-  background: #30e3cb;
-  text-decoration: none;
+.tyComment {
+  color: #11999E;
+		font-family: 'Montserrat', sans-serif;
+		background-color: #e3d50d;
+		width: 0;
+		height: 0;
+		border: thick double #03031b;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		box-sizing: border-box;
+		border-radius: 10px;
+		transform-origin: center;
+		transform: scale(0) rotate(-90deg);
+		transition: width 0ms linear 1250ms, height 0ms linear 1250ms, transform 680ms cubic-bezier(0.68, 0.55, 0.27, 1.55)1125ms;
 }
 </style>
   
