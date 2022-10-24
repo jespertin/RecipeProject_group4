@@ -5,6 +5,7 @@ import Comments from '../components/comments.vue';
 </script>
 
 <template>
+  
     <router-link id="buttonHome" to="/">
         <p>Tillfällig home knapp</p>
     </router-link>
@@ -12,6 +13,7 @@ import Comments from '../components/comments.vue';
         <SpecificRecipe :recipe="recipe"></SpecificRecipe>
         <Comments />
     </div>
+
 </template>
 
 <script>
@@ -36,11 +38,15 @@ export default {
 
 <style scoped>
 
+
 /* La bara till en flex container för att kolla hur det såg ut centrerat */
 #flexContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 60vw;
+    margin: 0 auto;
+
 }
 
 </style>

@@ -134,7 +134,9 @@ export default {
 .containerCommentSectionWrapper {
   display: flex;
   flex-direction: column;
-  width: 50%;
+  width: 100%;
+  border-top: solid 1px;
+
 }
 
 .containerCommentInput {
@@ -152,7 +154,7 @@ ul {
   background-color: gray;
   margin-top: 15px;
   align-content: flex-start;
-  width: 90%;
+  width: 100%;
 }
 
 .containerCommentInput>p {
