@@ -10,37 +10,43 @@ import Comments from '../components/comments.vue';
     </router-link>
     <div id="flexContainer">
         <SpecificRecipe :recipe="recipe"></SpecificRecipe>
+        <Rating />
         <Comments />
     </div>
 </template>
 
 <script>
 import SpecificRecipe from '../components/specificRecipe.vue'
+import Rating from '../components/Rating.vue'
 export default {
     components: {
-        SpecificRecipe
+        SpecificRecipe,
+        Rating
     },
-    created() {
-        fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId)
-            .then(response => response.json())
-            .then(data => this.recipe = data)
-            .catch(error => console.log("error: " + error));
-    },
-    data() {
-        return {
-            recipe: null
-        }
+created() {
+    fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId)
+        .then(response => response.json())
+        .then(data => this.recipe = data)
+        .catch(error => console.log("error: " + error));
+},
+data() {
+    return {
+        recipe: null,
+        ratingTitle: 'Thank you!',
+        ratingMessage: 'You rated this project:',
+        starText: 'star/s'
+
+
     }
+}
 }
 </script>
 
 <style scoped>
-
 /* La bara till en flex container för att kolla hur det såg ut centrerat */
 #flexContainer {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 </style>
