@@ -19,13 +19,13 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <style>
+
 #footer-container {
     background-color: #11999E;
     padding-top: 0%;
     border-bottom: 5%;
     margin-top: 0%;
     bottom: 10 rem;
-
 }
 
 #copyright {
@@ -34,6 +34,16 @@ import { RouterLink, RouterView } from 'vue-router'
     font-family: 'Merriweather', serif;
     padding: 20px 0;
     text-align: center;
+}
+
+body {
+    margin: 0;
+    background-color: #FFFAF0;
+}
+
+html {
+    overflow-y: scroll;
+    font-size: 100%;
 }
 
 /* body {
