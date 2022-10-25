@@ -1,24 +1,43 @@
 <template>
   <div id="Border">
-    <h2>Vad tyckte du om receptet?</h2>
-    <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
-    <form @submit.prevent="addRating">
-      <div class="form-control">
-        <!-- <input type="radio" id="rating-great" value="great" name="rating" v-model="chosenRating" />
-          <label for="rating-great">Great</label> -->
-        <star-rating id="starRating" @update:rating="setRating" v-on:click="addRating()"></star-rating>
+    <div>
+      <div v-if="!hasVoted">
+      <h2>Vad tyckte du om receptet?</h2>
+      <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
       </div>
+      <div v-else>
+        <h2> Tack för din röst</h2>
+      </div>
+      <form @submit.prevent="addRating">
 
-    </form>
+        <div class="form-control">
+
+          <star-rating id="starRating" v-bind:showRating="false" active-color="orange" v-bind:inactive-color="inactiveColor" v-bind:read-only="hasVoted" @update:rating="setRating" v-on:click="addRating()">
+          </star-rating>
+
+        </div>
+      </form>
+    </div>
+
   </div>
-</template>
 
+</template>
+  
 <script>
-import StarRating from "vue-star-rating";
+import StarRating from 'vue-star-rating'
 
 export default {
   components: {
-    StarRating,
+    StarRating
+  },
+  data() {
+    return {
+      chosenRating: null,
+      ratingMessage: 'Du gav receptet:',
+      starText: 'Stjärnor',
+      hasVoted: false,
+      inactiveColor:"#eaec53"
+    };
   },
 
   methods: {
@@ -26,37 +45,24 @@ export default {
       this.chosenRating = rating;
     },
     addRating() {
-      console.log(this.chosenRating);
+      console.log(this.chosenRating)
 
-      fetch(
-        "https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" +
-        this.$route.params.recipeId +
-        "/ratings",
-        {
-          method: "POST",
-          body: JSON.stringify({
-            rating: this.chosenRating,
-          }),
-          headers: {
-            "Content-type": "application/json; charset=UTF-8",
-          },
-        }
-      );
+
+      fetch('https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/' + this.$route.params.recipeId + "/ratings", {
+        method: 'POST',
+        body: JSON.stringify({
+          rating: this.chosenRating
+        }),
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+      })
+
+      this.hasVoted = true
+      this.inactiveColor = "white"
     },
-    data() {
-      return {
-        chosenRating: null,
-      };
-    },
-    /*     created() {
-      fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes")
-        .then((response) => response.json())
-        .then((data) => (this.apiData = data))
-        .catch((error) => console.log("error: " + error));
-    }, 
-  };*/
-  },
-};
+  }
+}
 </script>
 
 <style scoped>
@@ -66,9 +72,10 @@ export default {
   flex-direction: column;
 }
 
+
 h2 {
-  color: #11999e;
-  font-family: "Montserrat", sans-serif;
+  color: #11999E;
+  font-family: 'Montserrat', sans-serif;
 }
 
 #Border {
@@ -79,20 +86,17 @@ h2 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
-#btn {
-  margin-top: 5%;
-  background: #11cdd4;
-
-  border-radius: 20px;
-  font-family: "Montserrat", sans-serif;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-
-#btn:hover {
-  background: #30e3cb;
-  text-decoration: none;
+.tyComment {
+  color: #11999E;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #e3d50d;
+  border: thick double #03031b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 10px;
+  
 }
 </style>

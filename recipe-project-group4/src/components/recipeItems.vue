@@ -13,7 +13,7 @@
                             <p class="description" id="info">{{ recipe.description }}</p>
                             <img :src="recipe.imageUrl" alt="pictureOfFood" />
                         </div>
-                        <p id="pStyle">Rating: {{ recipe.avgRating }}</p>
+                        <p id="pStyle">Rating: {{recipe.avgRating}}</p>
                         <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
                         <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
                     </div>
@@ -24,7 +24,12 @@
 </template>
 <script>
 
+import Rating from './Rating.vue'
+
 export default {
+    components: {
+        Rating
+    },
     name: "RecipeItems",
     props: {
         mydata: Array
