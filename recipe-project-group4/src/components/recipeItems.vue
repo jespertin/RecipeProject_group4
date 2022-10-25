@@ -17,7 +17,7 @@
                                 <img :src="recipe.imageUrl" alt="pictureOfFood" />
                             </div>
                         </div>
-                        <p id="pStyle">Rating: {{ recipe.avgRating }}</p>
+                        <p id="pStyle">Rating: {{recipe.avgRating}}</p>
                         <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
                         <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
                     </div>

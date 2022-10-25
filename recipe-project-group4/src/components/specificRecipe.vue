@@ -2,11 +2,12 @@
 
 <template>
     <main v-if="recipe">
-        <h1>{{recipe.title}}</h1>
+        <h1>{{ recipe.title }}</h1>
         <div id="infoAndDescriptionContainer">
-            <p id="description">{{recipe.description}}</p>
-            <p id="info">Rating: {{recipe.avgRating}} | {{recipe.ingredients.length}} Ingredients
-                |{{recipe.timeInMins}}min</p>
+            <p id="description">{{ recipe.description }}</p>
+            <p id="info">Rating: <star-rating id="starRating" v-bind:increment="0.1" v-bind:read-only="true" v-bind:rating="recipe.avgRating.toFixed(1)">
+                </star-rating> | {{ recipe.ingredients.length }} Ingredients
+                |{{ recipe.timeInMins }}min</p>
         </div>
         <div id="pictureContainer">
             <img :src="recipe.imageUrl" alt="pictureOfFood">
@@ -16,7 +17,7 @@
                 <h3>Ingredienser</h3>
                 <ul v-for="ingredient in recipe.ingredients">
                     <li>
-                        {{ingredient.amount}} {{ingredient.unit}} {{ingredient.name}}
+                        {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
                     </li>
 
                 </ul>
@@ -25,7 +26,7 @@
                 <h3>Gör så här</h3>
                 <ul v-for="toDo in recipe.instructions">
                     <li>
-                        {{toDo}}
+                        {{ toDo }}
                     </li>
 
                 </ul>
@@ -35,7 +36,13 @@
 </template>
 
 <script>
+
+import StarRating from 'vue-star-rating'
+
 export default {
+    components: {
+        StarRating
+    },
     props: {
         recipe: Object
     }
@@ -43,12 +50,12 @@ export default {
 </script>
 
 <style scoped>
-
 * {
     font-size: 30px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: 700;
 }
+
 main {
     width: 60vw;
     border: solid 1px;
@@ -59,14 +66,17 @@ main {
     margin: 0 auto;
     flex-wrap: wrap;
 }
+
 ul {
     list-style: none;
     padding: 0;
 }
+
 img {
     width: 20vw;
     border-radius: 20px;
 }
+
 #infoAndDescriptionContainer {
     width: 50%;
     font-size: 1.3em;
@@ -78,21 +88,26 @@ img {
     border-radius: 5px;
     padding: 5px;
 }
+
 #pictureContainer {
     width: 20vw;
 }
+
 section {
     width: 50%;
 }
+
 h1 {
     width: 100%;
     text-align: center;
     font-size: 2em;
     text-decoration: underline;
 }
+
 #ingredients {
     width: 30%;
 }
+
 #ingredientsAndInstructions {
     display: flex;
     flex-direction: row;
@@ -100,14 +115,15 @@ h1 {
     align-items: space-around;
     font-size: 1em;
 }
+
 h3 {
     text-align: center;
     border-bottom: 2px solid;
 }
+
 li {
     background-color: rgba(154, 162, 163, 0.966);
     border-radius: 5px;
     padding: 5px;
 }
-
 </style>

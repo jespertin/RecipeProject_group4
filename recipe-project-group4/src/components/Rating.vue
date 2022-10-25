@@ -1,22 +1,24 @@
 <template>
   <div id="Border">
-    <h2>Vad tyckte du om receptet?</h2>
-    <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
-    <form @submit.prevent="addRating">
-
-      <div class="form-control">
-        <!-- <input type="radio" id="rating-great" value="great" name="rating" v-model="chosenRating" />
-          <label for="rating-great">Great</label> -->
-        <star-rating id="starRating" @update:rating="setRating" v-on:click="addRating()">
-        </star-rating>
-        <!-- v-bind:rating-message="ratingMessage" v-bind:star-text="starText" -->
-        <div class="tyComment">
-          <p v-if="chosenRating != '`'">{{ratingMessage}}</p>
-          <h2 v-if="chosenRating != '`'">{{starText}}</h2>
-        </div>
-
+    <div>
+      <div v-if="!hasVoted">
+      <h2>Vad tyckte du om receptet?</h2>
+      <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
       </div>
-    </form>
+      <div v-else>
+        <h2> Tack för din röst</h2>
+      </div>
+      <form @submit.prevent="addRating">
+
+        <div class="form-control">
+
+          <star-rating id="starRating" v-bind:showRating="false" active-color="orange" v-bind:inactive-color="inactiveColor" v-bind:read-only="hasVoted" @update:rating="setRating" v-on:click="addRating()">
+          </star-rating>
+
+        </div>
+      </form>
+    </div>
+
   </div>
 
 </template>
@@ -29,18 +31,19 @@ export default {
     StarRating
   },
   data() {
-      return {
-        chosenRating: null,
-        ratingMessage: 'Du gav receptet:',
-        starText: 'Stjärnor'
-      };
-    },
+    return {
+      chosenRating: null,
+      ratingMessage: 'Du gav receptet:',
+      starText: 'Stjärnor',
+      hasVoted: false,
+      inactiveColor:"#eaec53"
+    };
+  },
 
   methods: {
     setRating(rating) {
       this.chosenRating = rating;
     },
-    // props: ['ratingMessage', 'starText'],
     addRating() {
       console.log(this.chosenRating)
 
@@ -54,6 +57,9 @@ export default {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
+
+      this.hasVoted = true
+      this.inactiveColor = "white"
     },
   }
 }
@@ -65,6 +71,7 @@ export default {
   align-items: center;
   flex-direction: column;
 }
+
 
 h2 {
   color: #11999E;
@@ -81,20 +88,16 @@ h2 {
 
 .tyComment {
   color: #11999E;
-		font-family: 'Montserrat', sans-serif;
-		background-color: #e3d50d;
-		width: 0;
-		height: 0;
-		border: thick double #03031b;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-direction: column;
-		box-sizing: border-box;
-		border-radius: 10px;
-		transform-origin: center;
-		transform: scale(0) rotate(-90deg);
-		transition: width 0ms linear 1250ms, height 0ms linear 1250ms, transform 680ms cubic-bezier(0.68, 0.55, 0.27, 1.55)1125ms;
+  font-family: 'Montserrat', sans-serif;
+  background-color: #e3d50d;
+  border: thick double #03031b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-sizing: border-box;
+  border-radius: 10px;
+  
 }
 </style>
   
