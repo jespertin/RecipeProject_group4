@@ -64,7 +64,7 @@ ul {
   padding: 0;
 }
 img {
-  width: 17vw;
+  width: 13vw;
   border-radius: 20px;
 }
 #infoAndDescriptionContainer {
