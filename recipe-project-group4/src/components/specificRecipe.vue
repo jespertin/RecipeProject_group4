@@ -70,7 +70,7 @@ ul {
 }
 
 img {
-  width: 17vw;
+  width: 13vw;
   border-radius: 20px;
 }
 

@@ -198,22 +198,26 @@ ul {
 
 
 textarea {
-  margin: 5px;
+  margin-bottom: 5px;
+ resize: none;
+  padding: 0%;
   height: 120px;
-  width: 90%;
+  width: 100%;
   border: 3px solid lightgray;
   border-radius: 4px;
-  resize: none;
+ 
 }
 
 #commentTextInputDiv {
-  flex-basis: 90%;
+  
+  flex-basis: 100%;
   flex-grow: 1;
   flex-shrink: 0;
 }
 
 input {
-  margin: 5px;
+  margin-bottom: 5px;
+  padding: 0%;
   height: 40px;
   width: 90%;
   border: 3px solid lightgray;
