@@ -4,7 +4,6 @@
         <Banner :name="name" />
         <categories-nav-list></categories-nav-list>
         <recipe-items :mydata="apiData"></recipe-items>
-
         <Foot/>
     </div>
 </template>

@@ -15,10 +15,10 @@
                     <star-rating v-if="recipe.avgRating" class="starRating" v-bind:showRating="false"
                         v-bind:increment="0.1" v-bind:read-only="true"
                         v-bind:rating="parseInt(recipe.avgRating.toFixed(1))" inactive-color="white"
-                        border-color="black" border-width="2" star-size="25">
+                        border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size= "parseInt(25)">
                     </star-rating>
                     <star-rating v-else class="starRating" v-bind:read-only="true" v-bind:showRating="false"
-                        inactive-color="white" border-color="black" border-width="2" star-size="25">
+                        inactive-color="white" border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size= "parseInt(25)">
                     </star-rating>
                     <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
                     <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>

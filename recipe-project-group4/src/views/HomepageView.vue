@@ -34,7 +34,7 @@ export default {
   },
   data() {
     return {
-      apiData: null,
+      apiData: [],
       listOfRecipes: null,
       category: null,
       name: ""

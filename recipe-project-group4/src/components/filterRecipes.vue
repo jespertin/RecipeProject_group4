@@ -11,6 +11,12 @@
 
 <script>
 export default {
+    data() {
+        return {
+            searchString: "",
+            resultList: null
+        }
+    },
     props: {
         recipes: {
             type: Array,
@@ -19,12 +25,6 @@ export default {
         searchBarPlaceHolder: {
             type: String,
             default: "Sök efter recept"
-        }
-    },
-    data() {
-        return {
-            searchString: "",
-            resultList: null
         }
     },
     methods: {
