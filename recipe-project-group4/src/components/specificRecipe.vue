@@ -1,50 +1,62 @@
 <template>
-    <main v-if="recipe">
-        <h1>{{ recipe.title }}</h1>
-        <div id="infoAndDescriptionContainer">
-            <p id="description">{{ recipe.description }}</p>
-            <p id="info"> <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="false" v-bind:increment="0.1" v-bind:read-only="true" v-bind:rating="recipe.avgRating.toFixed(1)">
-                </star-rating> | {{ recipe.ingredients.length }} Ingredients
-                |{{ recipe.timeInMins }}min</p>
-        </div>
-        <div id="pictureContainer">
-            <img :src="recipe.imageUrl" alt="pictureOfFood">
-        </div>
-        <div id="ingredientsAndInstructions">
-            <section id="ingredients">
-                <h3>Ingredienser</h3>
-                <ul v-for="ingredient in recipe.ingredients">
-                    <li>
-                        {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
-                    </li>
+  <main v-if="recipe">
+    <h1>{{ recipe.title }}</h1>
 
-                </ul>
-            </section>
-            <section id="instructions">
-                <h3>Gör så här</h3>
-                <ul v-for="toDo in recipe.instructions">
-                    <li>
-                        {{ toDo }}
-                    </li>
+    <div id="imgAndDesc">
+      <div id="infoAndDescriptionContainer">
+        <p id="description">{{ recipe.description }}</p>
+        <p id="info">
+          <star-rating
+            v-if="recipe.avgRating"
+            id="starRating"
+            v-bind:showRating="false"
+            v-bind:increment="0.1"
+            v-bind:read-only="true"
+            v-bind:rating="recipe.avgRating.toFixed(1)"
+          >
+          </star-rating>
+          | {{ recipe.ingredients.length }} Ingredients |{{
+            recipe.timeInMins
+          }}min
+        </p>
+      </div>
 
-                </ul>
-            </section>
-        </div>
-    </main>
+      <div id="pictureContainer">
+        <img :src="recipe.imageUrl" alt="pictureOfFood" />
+      </div>
+    </div>
+    <div id="ingredientsAndInstructions">
+      <section id="ingredients">
+        <h3>Ingredienser</h3>
+        <ul v-for="ingredient in recipe.ingredients">
+          <li>
+            {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
+          </li>
+        </ul>
+      </section>
+      <section id="instructions">
+        <h3>Gör så här</h3>
+        <ul v-for="toDo in recipe.instructions">
+          <li>
+            {{ toDo }}
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
 </template>
 
 <script>
-
-import StarRating from 'vue-star-rating'
+import StarRating from "vue-star-rating";
 
 export default {
-    components: {
-        StarRating
-    },
-    props: {
-        recipe: Object
-    }
-}
+  components: {
+    StarRating,
+  },
+  props: {
+    recipe: Object,
+  },
+};
 </script>
 
 <style scoped>
@@ -61,7 +73,7 @@ main {
   justify-content: space-around;
   margin: 0 auto;
   flex-wrap: wrap;
-border-bottom: solid 1px;
+  border-bottom: solid 1px;
 }
 
 ul {
@@ -75,7 +87,6 @@ img {
 }
 
 #infoAndDescriptionContainer {
-  
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -90,9 +101,7 @@ img {
   padding: 5px;
 }
 
-#pictureContainer {
-    width: 20vw;
-}
+
 
 section {
   width: 50%;
@@ -110,6 +119,16 @@ h1 {
 }
 
 #ingredientsAndInstructions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+  font-size: 1em;
+}
+
+#imgAndDesc {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
