@@ -20,6 +20,16 @@ import { RouterLink, RouterView } from 'vue-router'
 
 <style>
 
+body {
+    margin: 0;
+    background-color: #FFFAF0;
+}
+
+html {
+    overflow-y: scroll;
+    font-size: 100%;
+}
+
 /* body {
     background-color: #c7e9e9; 
     margin: 0;

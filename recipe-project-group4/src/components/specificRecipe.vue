@@ -1,129 +1,152 @@
-
-
 <template>
-    <main v-if="recipe">
-        <h1>{{ recipe.title }}</h1>
-        <div id="infoAndDescriptionContainer">
-            <p id="description">{{ recipe.description }}</p>
-            <p id="info">Rating: <star-rating id="starRating" v-bind:increment="0.1" v-bind:read-only="true" v-bind:rating="parseInt(recipe.avgRating.toFixed(1))">
-                </star-rating> | {{ recipe.ingredients.length }} Ingredients
-                |{{ recipe.timeInMins }}min</p>
-        </div>
-        <div id="pictureContainer">
-            <img :src="recipe.imageUrl" alt="pictureOfFood">
-        </div>
-        <div id="ingredientsAndInstructions">
-            <section id="ingredients">
-                <h3>Ingredienser</h3>
-                <ul v-for="ingredient in recipe.ingredients">
-                    <li>
-                        {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
-                    </li>
+  <main v-if="recipe">
+    <h1>{{ recipe.title }}</h1>
 
-                </ul>
-            </section>
-            <section id="instructions">
-                <h3>Gör så här</h3>
-                <ul v-for="toDo in recipe.instructions">
-                    <li>
-                        {{ toDo }}
-                    </li>
+    <div id="imgAndDesc">
+      <div id="infoAndDescriptionContainer">
+        <p id="description">{{ recipe.description }}</p>
+        <p id="info">
+          <star-rating
+            v-if="recipe.avgRating"
+            id="starRating"
+            v-bind:showRating="false"
+            v-bind:increment="0.1"
+            v-bind:read-only="true"
+            v-bind:rating="recipe.avgRating.toFixed(1)"
+          >
+          </star-rating>
+          | {{ recipe.ingredients.length }} Ingredients |{{
+            recipe.timeInMins
+          }}min
+        </p>
+      </div>
 
-                </ul>
-            </section>
-        </div>
-    </main>
+      <div id="pictureContainer">
+        <img :src="recipe.imageUrl" alt="pictureOfFood" />
+      </div>
+    </div>
+    <div id="ingredientsAndInstructions">
+      <section id="ingredients">
+        <h3>Ingredienser</h3>
+        <ul v-for="ingredient in recipe.ingredients">
+          <li>
+            {{ ingredient.amount }} {{ ingredient.unit }} {{ ingredient.name }}
+          </li>
+        </ul>
+      </section>
+      <section id="instructions">
+        <h3>Gör så här</h3>
+        <ul v-for="toDo in recipe.instructions">
+          <li>
+            {{ toDo }}
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
 </template>
 
 <script>
-
-import StarRating from 'vue-star-rating'
+import StarRating from "vue-star-rating";
 
 export default {
-    components: {
-        StarRating
-    },
-    props: {
-        recipe: Object
-    }
-}
+  components: {
+    StarRating,
+  },
+  props: {
+    recipe: Object,
+  },
+};
 </script>
 
 <style scoped>
 * {
-    font-size: 30px;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 700;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 700;
 }
 
 main {
-    width: 60vw;
-    border: solid 1px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    margin: 0 auto;
-    flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  border-bottom: solid 1px;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 img {
-    width: 20vw;
-    border-radius: 20px;
+  width: 13vw;
+  border-radius: 20px;
 }
 
 #infoAndDescriptionContainer {
-    width: 50%;
-    font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 50%;
+  font-size: 1.3em;
 }
-
 
 #info {
-    background-color: rgba(154, 162, 163, 0.966);
-    border-radius: 5px;
-    padding: 5px;
+  background-color: rgba(154, 162, 163, 0.966);
+  border-radius: 5px;
+  padding: 5px;
 }
 
-#pictureContainer {
-    width: 20vw;
-}
+
 
 section {
-    width: 50%;
+  width: 50%;
 }
 
 h1 {
-    width: 100%;
-    text-align: center;
-    font-size: 2em;
-    text-decoration: underline;
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  text-decoration: underline;
 }
 
 #ingredients {
-    width: 30%;
+  width: 30%;
 }
 
 #ingredientsAndInstructions {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: space-around;
-    font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+  font-size: 1em;
+}
+
+#imgAndDesc {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+
+  font-size: 1em;
 }
 
 h3 {
-    text-align: center;
-    border-bottom: 2px solid;
+  text-align: center;
+  font-size: x-large;
+  border-bottom: 2px solid;
 }
 
 li {
-    background-color: rgba(154, 162, 163, 0.966);
-    border-radius: 5px;
-    padding: 5px;
+  background-color: rgba(154, 162, 163, 0.966);
+  border-radius: 5px;
+  padding: 5px;
 }
 </style>

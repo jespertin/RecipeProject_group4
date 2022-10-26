@@ -37,16 +37,16 @@ export default {
 div {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: flex;
   width: 170px;
   border-radius: 20px;
 
-  background-color: rgba(154, 162, 163, 0.966);
+  background-color: rgba(190, 232, 238, 0.966);
 }
 
 ul {
   list-style: none;
-  padding-left: 0%;
+  padding-left: 0;
   display: flex;
   flex-direction: column;
   justify-content: start;
@@ -90,6 +90,7 @@ a.router-link-active {
 
 
 a:hover {
-  text-decoration: underline;
+  background: lightgray;
+  border-radius: 0;
 }
 </style>
