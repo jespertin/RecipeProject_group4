@@ -12,7 +12,7 @@
             v-bind:showRating="false"
             v-bind:increment="0.1"
             v-bind:read-only="true"
-            v-bind:rating="parseInt(recipe.avgRating.toFixed(1))"
+            v-bind:rating="parseFloat(recipe.avgRating.toFixed(1))"
           >
           </star-rating>
           | {{ recipe.ingredients.length }} Ingredients |{{
