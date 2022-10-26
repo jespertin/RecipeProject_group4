@@ -26,7 +26,6 @@ import { RouterLink, RouterView } from 'vue-router'
     border-bottom: 5%;
     margin-top: 0%;
     bottom: 10 rem;
-
 }
 
 #copyright {
