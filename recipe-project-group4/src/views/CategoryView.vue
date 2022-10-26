@@ -1,38 +1,35 @@
 <template>
     <div>
-        <header>
-            <router-link id="buttonHome" to="/">
-                <h2>Receptsajten</h2>
-            </router-link>
-            <h1 id="headerCategoryView">{{this.$route.params.categoryName}}</h1>
-        </header>
 
+        <Banner :name="name" />
         <categories-nav-list></categories-nav-list>
         <recipe-items :mydata="apiData"></recipe-items>
 
-
-        <footer>
-            <div id="footer-container">
-                <p id="copyright">© A Group 4 Production.</p>
-            </div>
-        </footer>
+        <Foot/>
     </div>
 </template>
 
 <script>
 import RecipeItems from "../components/recipeItems.vue";
 import CategoriesNavList from "../components/categoriesNavList.vue";
+import Banner from '../components/banner.vue'
+import Foot from '../components/foot.vue'
+
 
 
 export default {
     components: {
         RecipeItems,
-        CategoriesNavList
+        CategoriesNavList,
+        Banner,
+        Foot
     },
 
     data() {
         return {
             apiData: null,
+            name: ""
+
         }
     },
     methods: {
@@ -40,7 +37,9 @@ export default {
             fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/categories/" + this.$route.params.categoryName + "/recipes")
                 .then((response) => response.json())
                 .then((data) => (this.apiData = data))
-                .catch((error) => console.log("error: " + error));
+                .catch((error) => console.log("error: " + error))
+                .finally(() => { this.name = this.$route.params.categoryName })
+
         }
     },
     created() {
@@ -57,33 +56,10 @@ export default {
 </script>
 
 <style scoped>
-#buttonHome {
-
-    background: #19b9bf;
-
-    margin-inline-end: 19%;
-    border-radius: 20px;
-    font-family: 'Montserrat', sans-serif;
-    color: #ffffff;
-    font-size: 100%;
-    padding: 10px 15px 10px 15px;
-    text-decoration: none;
-
-}
-
-#buttonHome:hover {
-    background: #11cdd4;
-
-    text-decoration: none;
-}
 
 a {
     max-width: 13%;
 
 }
 
-#headerCategoryView {
-    margin-right: 19%;
-
-}
 </style>

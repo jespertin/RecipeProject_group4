@@ -1,9 +1,7 @@
 <template>
   <div>
-    <header>
-      <h1>Receptsajten</h1>
-      <h2>Grupp 4</h2>
-    </header>
+    <banner/>
+    
     <div id="componentContainer">
       <div id="navbarContainer">
         <categories-nav-list id="categoryMenu" />
@@ -12,27 +10,28 @@
         <recipe-items id="recipeList" :mydata="apiData" />
       </div>
     </div>
-    <footer>
-      <div id="footer-container">
-        <p id="copyright">© A Group 4 Production.</p>
-      </div>
-    </footer>
+    <foot/>
   </div>
 </template>
 
 <script>
 import RecipeItems from "../components/recipeItems.vue";
 import CategoriesNavList from "../components/categoriesNavList.vue";
+import Banner from '../components/banner.vue'
+import Foot from '../components/foot.vue'
 
 export default {
   components: {
     RecipeItems,
     CategoriesNavList,
+    Banner,
+    Foot,
   },
   data() {
     return {
       apiData: null,
-      value: null
+      value: null,
+      category: null
     };
   },
   created() {
@@ -40,6 +39,8 @@ export default {
       .then((response) => response.json())
       .then((data) => (this.apiData = data))
       .catch((error) => console.log("error: " + error));
+
+      
   },
 };
 </script>

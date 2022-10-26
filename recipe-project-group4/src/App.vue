@@ -19,22 +19,6 @@ import { RouterLink, RouterView } from 'vue-router'
 </script>
 
 <style>
-#footer-container {
-    background-color: #11999E;
-    padding-top: 0%;
-    border-bottom: 5%;
-    margin-top: 0%;
-    bottom: 10 rem;
-
-}
-
-#copyright {
-    color: #EAF6F6;
-    font-size: 150%;
-    font-family: 'Merriweather', serif;
-    padding: 20px 0;
-    text-align: center;
-}
 
 /* body {
     background-color: #c7e9e9; 
@@ -65,14 +49,6 @@ h2 {
     text-align: center;
 } */
 
-header {
-    width: 100%;
-    height: 4 rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #19b9bf;
-}
 
 /* h3 {
     color: #11999E;

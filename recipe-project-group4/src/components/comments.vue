@@ -8,10 +8,10 @@
       <div v-else class="containerCommentInput">
         <div id="commentTextInputDiv">
           <textarea placeholder="Skriv din kommentar" name="newCommentText" v-model="newCommentText"
-             v-on:input="toggleDisable()" ></textarea>
+            v-on:input="toggleDisable()"></textarea>
         </div>
         <div id="nameInputDiv">
-          <input placeholder="Ditt namn" name="newCommentName" v-model="newCommentName"  v-on:input="toggleDisable()">
+          <input placeholder="Ditt namn" name="newCommentName" v-model="newCommentName" v-on:input="toggleDisable()">
         </div>
         <div id="sendButtonDiv">
           <button v-bind:disabled="isDisabled" v-on:click="addComment()"> Skicka </button>
@@ -22,11 +22,11 @@
 
     <div>
       <ul v-if="dataArray">
-        <div v-for="comment in dataArray.slice(0,commentLimit)" :key="comment.id">
+        <div v-for="comment in dataArray.slice(0, commentLimit)" :key="comment.id">
           <div class="containerCommentInput" id="commentSingleDiv">
-            <p id="commentNameField">{{comment.name}}</p>
-            <p id="commentDateField">{{comment.createdAt}}</p>
-            <p id="commentTextField">{{comment.comment}}</p>
+            <p id="commentNameField">{{ comment.name }}</p>
+            <p id="commentDateField">{{ comment.createdAt }}</p>
+            <p id="commentTextField">{{ comment.comment }}</p>
           </div>
         </div>
         <div id="loadMoreCommentsButtonDiv">
@@ -81,9 +81,9 @@ export default {
 
     toggleDisable() {
 
-      if (this.newCommentText.length > 0 && this.newCommentName.length > 0) 
+      if (this.newCommentText.length > 0 && this.newCommentName.length > 0)
         this.isDisabled = false
-      else 
+      else
         this.isDisabled = true
     },
 
@@ -125,18 +125,20 @@ export default {
           headers: {
             'Content-type': 'application/json; charset=UTF-8',
           },
-        }).then(() => { this.loadCommentData() })
+        })
+          .catch(error => {console.log(error.message)})
+          .then((response) => { if (response.ok) { this.commentSent = true, this.loadCommentData() } return response.json(); })
+          //.then((response) => { if (!response.ok) { console.log("error" + response.json()) } })
 
-        this.commentSent = true
+        //.catch(error => { console.log("error: " + error), this.isDisabled = false })
       }
       else
         alert("Please enter your comment (max. 1000 characters) and a valid name (max. 40 characters).")
 
-      this.newCommentName = null;
-      this.newCommentText = null;
-      this.newCommentDate = null;
+      this.newCommentName = "";
+      this.newCommentText = "";
+      this.newCommentDate = "";
 
-      this.isDisabled = false
     },
 
 
@@ -247,7 +249,7 @@ button:disabled {
   background-color: lightgray;
   border-style: solid;
   border-color: lightgray;
-  color:gray;
+  color: gray;
   cursor: auto;
 }
 
