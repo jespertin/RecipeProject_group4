@@ -3,7 +3,7 @@
         <h1>{{ recipe.title }}</h1>
         <div id="infoAndDescriptionContainer">
             <p id="description">{{ recipe.description }}</p>
-            <p id="info">Rating: <star-rating id="starRating" v-bind:increment="0.1" v-bind:read-only="true" v-bind:rating="recipe.avgRating.toFixed(1)">
+            <p id="info"> <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="false" v-bind:increment="0.1" v-bind:read-only="true" v-bind:rating="recipe.avgRating.toFixed(1)">
                 </star-rating> | {{ recipe.ingredients.length }} Ingredients
                 |{{ recipe.timeInMins }}min</p>
         </div>

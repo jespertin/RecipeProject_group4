@@ -1,7 +1,4 @@
 <template>
-
-  <Rating></Rating>
-
   <div class="containerCommentSectionWrapper">
     <h1>Kommentarer</h1>
     <div>
@@ -10,10 +7,10 @@
       <div v-else class="containerCommentInput">
         <div id="commentTextInputDiv">
           <textarea placeholder="Skriv din kommentar" name="newCommentText" v-model="newCommentText"
-             v-on:input="toggleDisable()" ></textarea>
+            v-on:input="toggleDisable()"></textarea>
         </div>
         <div id="nameInputDiv">
-          <input placeholder="Ditt namn" name="newCommentName" v-model="newCommentName"  v-on:input="toggleDisable()">
+          <input placeholder="Ditt namn" name="newCommentName" v-model="newCommentName" v-on:input="toggleDisable()">
         </div>
         <div id="sendButtonDiv">
           <button v-bind:disabled="isDisabled" v-on:click="addComment()"> Skicka </button>
@@ -24,11 +21,11 @@
 
     <div>
       <ul v-if="dataArray">
-        <div v-for="comment in dataArray.slice(0,commentLimit)" :key="comment.id">
+        <div v-for="comment in dataArray.slice(0, commentLimit)" :key="comment.id">
           <div class="containerCommentInput" id="commentSingleDiv">
-            <p id="commentNameField">{{comment.name}}</p>
-            <p id="commentDateField">{{comment.createdAt}}</p>
-            <p id="commentTextField">{{comment.comment}}</p>
+            <p id="commentNameField">{{ comment.name }}</p>
+            <p id="commentDateField">{{ comment.createdAt }}</p>
+            <p id="commentTextField">{{ comment.comment }}</p>
           </div>
         </div>
         <div id="loadMoreCommentsButtonDiv">
@@ -45,13 +42,8 @@
 </template>
 
 <script>
-import Rating from './Rating.vue'
 
 export default {
-
-  components: {
-    Rating
-  },
   data() {
     return {
 
@@ -83,9 +75,9 @@ export default {
 
     toggleDisable() {
 
-      if (this.newCommentText.length > 0 && this.newCommentName.length > 0) 
+      if (this.newCommentText.length > 0 && this.newCommentName.length > 0)
         this.isDisabled = false
-      else 
+      else
         this.isDisabled = true
     },
 
@@ -250,7 +242,7 @@ button:disabled {
   background-color: lightgray;
   border-style: solid;
   border-color: lightgray;
-  color:gray;
+  color: gray;
   cursor: auto;
 }
 
