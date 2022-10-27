@@ -47,7 +47,9 @@ export default {
         fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes")
           .then((response) => response.json())
           .then((data) => (this.apiData = data))
-          .catch((error) => console.log("error: " + error));
+          .catch((error) => console.log("error: " + error))
+          .finally(() => { this.name = "" })
+
       } else {
         fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/categories/" + this.$route.params.categoryName + "/recipes")
           .then((response) => response.json())
