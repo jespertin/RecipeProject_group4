@@ -29,7 +29,7 @@ export default {
             ratingTitle: 'Thank you!',
             ratingMessage: 'You rated this project:',
             starText: 'star/s',
-            name: "",
+            name: [],
             hasVoted: false
         }
     },
@@ -47,7 +47,7 @@ export default {
                 .then(response => response.json())
                 .then(data => this.recipe = data)
                 .catch(error => console.log("error: " + error))
-                .then(() => { this.ratingScore = this.recipe.avgRating, this.name = this.recipe.title })
+                .then(() => { this.ratingScore = this.recipe.avgRating, this.name = this.recipe.categories })
         }
     },
 
