@@ -1,15 +1,7 @@
 <template>
-  <div id="mainContainer" v-if="apiData">
-    <header>
-      <router-link id="buttonHome" to="/">
-        <h2>Receptsajten</h2>
-      </router-link>
-      <div class="headerCurrentCategory">
-        <h1 v-if="this.$route.params.categoryName" id="headerCategoryView">{{ this.$route.params.categoryName }}</h1>
-        <h1 v-else>Alla recept</h1>
-      </div>
-    </header>
-
+  <div>
+    <banner :headerName="name"/>
+    
     <div id="componentContainer">
       <div id="navbarContainer">
         <categories-nav-list id="categoryMenu" />
@@ -20,19 +12,15 @@
         <recipe-items id="recipeList" :mydata="listOfRecipes" />
       </div>
     </div>
-
-
-    <footer>
-      <div id="footer-container">
-        <p id="copyright">© A Group 4 Production.</p>
-      </div>
-    </footer>
+    <foot/>
   </div>
 </template>
 
 <script>
 import RecipeItems from "../components/recipeItems.vue";
 import CategoriesNavList from "../components/categoriesNavList.vue";
+import Banner from '../components/banner.vue'
+import Foot from '../components/foot.vue'
 import FilterRecipes from "../components/filterRecipes.vue";
 
 
@@ -40,12 +28,16 @@ export default {
   components: {
     RecipeItems,
     CategoriesNavList,
+    Banner,
+    Foot,
     FilterRecipes
   },
   data() {
     return {
-      apiData: null,
-      listOfRecipes: null
+      apiData: [],
+      listOfRecipes: null,
+      category: null,
+      name: ""
     };
   },
 
@@ -60,7 +52,9 @@ export default {
         fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/categories/" + this.$route.params.categoryName + "/recipes")
           .then((response) => response.json())
           .then((data) => (this.apiData = data))
-          .catch((error) => console.log("error: " + error));
+          .catch((error) => console.log("error: " + error))
+          .finally(() => { this.name = this.$route.params.categoryName })
+
       }
     },
     handleSearchEvent(searchResult) {

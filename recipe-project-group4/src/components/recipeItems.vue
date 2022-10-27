@@ -14,11 +14,11 @@
                     </div>
                     <star-rating v-if="recipe.avgRating" class="starRating" v-bind:showRating="false"
                         v-bind:increment="0.1" v-bind:read-only="true"
-                        v-bind:rating="parseInt(recipe.avgRating.toFixed(1))" inactive-color="white"
-                        border-color="black" border-width="2" star-size="25">
+                        v-bind:rating="parseFloat(recipe.avgRating.toFixed(1))" inactive-color="white"
+                        border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size= "parseInt(25)">
                     </star-rating>
                     <star-rating v-else class="starRating" v-bind:read-only="true" v-bind:showRating="false"
-                        inactive-color="white" border-color="black" border-width="2" star-size="25">
+                        inactive-color="white" border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size= "parseInt(25)">
                     </star-rating>
                     <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
                     <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
@@ -45,8 +45,8 @@ export default {
 
 <style scoped>
 * {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
     font-size: 1.2rem;
 }
 
@@ -101,7 +101,6 @@ a {
     flex-wrap: wrap;
     border-radius: 20px;
     background-color: white;
-    
 }
 
 .divHover :hover {
@@ -122,7 +121,7 @@ h1 {
 main {
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
