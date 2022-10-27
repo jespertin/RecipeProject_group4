@@ -139,12 +139,8 @@ a {
 
 }
 
-#headerCategoryView {
-  margin-right: 19%;
-
-}
-
 .headerCurrentCategory {
   width: 15vw;
 }
+
 </style>
