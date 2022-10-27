@@ -25,9 +25,6 @@ export default {
     data() {
         return {
             recipe: null,
-            ratingTitle: 'Thank you!',
-            ratingMessage: 'You rated this project:',
-            starText: 'star/s',
             name: ""
         }
     },
