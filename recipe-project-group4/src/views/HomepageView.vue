@@ -1,18 +1,21 @@
 <template>
   <div>
-    <banner :headerName="name"/>
-    
-    <div id="componentContainer">
+    <banner :headerName="name" />
+
+    <div id="mainContainer">
       <div id="navbarContainer">
         <categories-nav-list id="categoryMenu" />
       </div>
-
-      <div id="listContainer">
+      <div id="componentContainer">
         <FilterRecipes id="searchBar" :recipes="apiData" @filtered-data="handleSearchEvent" />
-        <recipe-items id="recipeList" :mydata="listOfRecipes" />
+        <div id="testContainer">
+          <div id="listContainer">
+            <recipe-items id="recipeList" :mydata="listOfRecipes" />
+          </div>
+        </div>
       </div>
     </div>
-    <foot/>
+    <foot />
   </div>
 </template>
 
@@ -47,7 +50,8 @@ export default {
         fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes")
           .then((response) => response.json())
           .then((data) => (this.apiData = data))
-          .catch((error) => console.log("error: " + error));
+          .catch((error) => console.log("error: " + error))
+          .finally(() => this.name = "Alla Rätter")
       } else {
         fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/categories/" + this.$route.params.categoryName + "/recipes")
           .then((response) => response.json())
@@ -84,10 +88,13 @@ export default {
 
 <style scoped>
 #mainContainer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+
 }
 
 #componentContainer {
-  display: flex;
   justify-content: center;
   margin-top: 40px;
   flex-direction: row;
@@ -98,10 +105,12 @@ export default {
   flex-direction: column;
 }
 
-#navbarContainer {}
+#navbarContainer {
+  align-self: flex-start;
+}
 
 #categoryMenu {
-  height: 100%;
+  height: 100vh;
 }
 
 #recipeList {}
@@ -137,4 +146,13 @@ a {
   width: 15vw;
 }
 
+@media screen and (max-width: 1000px) {
+  #componentContainer {
+    flex-wrap: wrap;
+  }
+
+  #categoryMenu {
+    height: auto;
+  }
+}
 </style>
