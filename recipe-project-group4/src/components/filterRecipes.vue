@@ -58,17 +58,17 @@ export default {
 }
 
 .wrapper {
-    position: relative;
+    margin-bottom: 20px;
     display: flex;
-    min-width: 100px;
     padding-bottom: 5px;
+    position: relative;
 }
 
 .search-icon {
-    position: absolute;
     top: 6px;
     left: 8px;
     width: 14px;
+    position: absolute;
 }
 
 

@@ -13,162 +13,66 @@ POST {{baseUrl}}/recipes HTTP/1.1
 Content-Type: application/json
 
 {
-    "title": "Lemon posset med hallon",
-    "description": "Lemon posset är en brittisk dessert gjord på grädde smaksatt med citron och påminner om italiensk pannacotta men utan gelatin. En krämig efterrätt med perfekt balans mellan syra och sötma som är både löjligt enkel och löjligt god!",
-    "ratings": [],
-    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243039/cf_259/lemon_posset_med_hallon.jpg",
+    "title": "Fyllda Chokladkakor till halloween",
+    "description": "Kakor i form av pumpor med ett dekorativt pumpamönster är perfekta för halloween. Prova dessa mumsiga chokladkakor med en fyllning av smörkräm med smak av vit choklad",
+    "ratings": [0],
+    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243969/cf_259/fyllda_chokladkakor_till_halloween.jpg",
     "timeInMins": 60,
     "categories": "Desert",
-    "instructions": [ "Koka upp grädde och socker, låt koka 1 minut. Ta från värmen och rör ner citronjuice.", 
-"Häll upp i 6 formar eller glas (för 6 port) och ställ i kylen minst 4 timmar eller tills de stelnat.", 
-"Till servering: Toppa med hallon vid servering."],
+    "instructions": ["Vispa smör, socker och hushållsfärg krämigt med elvisp i en bunke. Tillsätt ett ägg i taget under fortsatt vispning. Sikta ner salt, mjöl och kakao och vispa ihop till en deg. Degen blir först smulig, fortsätt vispa tills den går ihop. Plasta degen och lägg i kylen minst 1 timme.","Gör en mall i form av en pumpa (ca 4-5 cm i diameter) av lite tjockare papper. Kavla ut degen till en ca 3 mm tjock platta på en mjölad bänk. Skär ut 30 kakor enligt mallen och lägg på 2 bakpappersklädda plåtar (för 15 kakor). Grädda en plåt i taget 10-12 minuter. Låt svalna.","Smält chokladen i en bunke över ett vattenbad eller i micron. Vispa ihop smör, florsocker och vaniljsocker och tillsätt chokladen. Vispa till en slät kräm. Fyll i en spritspåse. Spritsa ca hälften av fyllningen på hälften av kakorna. Lägg på resten av kakorna och tryck försiktigt ihop. Spritsa sedan ett pumpamönster på kakorna med resten av fyllningen."],
     "ingredients": [
         {
-            "name": "VispGrädde",
-            "amount": 5,
-            "unit": "dl"
+            "name": "rumstempererat smör",
+            "amount": 300,
+            "unit": "g"
         },
         {
             "name": "Strösocker",
+            "amount": 3,
+            "unit": "dl"
+        },
+        {
+            "name": "Svart hushållsfärg",
             "amount": 1.5,
-            "unit": "dl"
-        },
-        {
-            "name": "Färskpressad citronjuice",
-            "amount": 0.75,
-            "unit": "dl"
-        },
-        {
-            "name": "Förp färska hallon",
-            "amount": 125,
-            "unit": "g"
-        }
-        
-    ]
-}
-
-###
-
-# Lägger till ett nytt recept
-
-POST {{baseUrl}}/recipes HTTP/1.1
-Content-Type: application/json
-
-{
-    "title": "Lemon posset med hallon",
-    "description": "Lemon posset är en brittisk dessert gjord på grädde smaksatt med citron och påminner om italiensk pannacotta men utan gelatin. En krämig efterrätt med perfekt balans mellan syra och sötma som är både löjligt enkel och löjligt god!",
-    "ratings": [],
-    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243039/cf_259/lemon_posset_med_hallon.jpg",
-    "timeInMins": 60,
-    "categories": "Efterrätt",
-    "instructions": [ "Koka upp grädde och socker, låt koka 1 minut. Ta från värmen och rör ner citronjuice.", 
-"Häll upp i 6 formar eller glas (för 6 port) och ställ i kylen minst 4 timmar eller tills de stelnat.", 
-"Till servering: Toppa med hallon vid servering."],
-    "ingredients": [
-        {
-            "name": "VispGrädde",
-            "amount": 5,
-            "unit": "dl"
-        },
-        {
-            "name": "Strösocker",
-            "amount": 1.5,
-            "unit": "dl"
-        },
-        {
-            "name": "Färskpressad citronjuice",
-            "amount": 0.75,
-            "unit": "dl"
-        },
-        {
-            "name": "Förp färska hallon",
-            "amount": 125,
-            "unit": "g"
-        }
-        
-    ]
-}
-
-# Lägger till ett nytt recept
-
-POST {{baseUrl}}/recipes HTTP/1.1
-Content-Type: application/json
-
-{
-    "title": "Färsk pasta med lax och svartkål",
-    "description": "Snabb, lättlagad och försvinnande god är laxpastan som görs av crème fraiche och svartkål. Låt laxbitarna koka i den goda såsen som även smaksätts med lite citron. Servera sedan laxen i såsen färsk pasta, fettuccine. Så gott!",
-    "ratings": [],
-    "imageUrl": "https://assets.icanet.se/e_sharpen:80,q_auto,dpr_1.25,w_718,h_718,c_lfill/imagevaultfiles/id_243518/cf_259/farsk_pasta_med_lax_och_svartkal___.jpg",
-    "timeInMins": 30,
-    "categories": "Huvudrätt",
-    "instructions": [ "Tina fisken (om fryst används).", "
-Sätt på en stor kastrull med vatten till pastan.", "Dra av svartkålsbladen från stjälkarna och hacka bladen grovt. Hacka stjälkarna fint.", "rör ner grädde och mjölk. Låt sjuda i 5 minuter", "
-Fräs all svartkål i smöret i en stekpanna (med lock) ca 2 minuter.", "Tillsätt crème fraiche, vatten och smulad buljongtärning. Sjud på svag värme ca 5 minuter.", "
-Hacka salladslöken fint och basilikan grovt.", "
-Riv yttersta skalet av citronen och pressa ur citronsaften. Smaksätt kålsåsen med citronskal, citronsaft, salt och peppar.", "
-Lägg laxbitarna i såsen och sjud under lock i 2-3 minuter eller tills laxen har en innertemperatur på 54°C.", "Koka pastan enligt anvisningen på förpackningen.", "
-Strö salladslöken och basilika över laxen och servera tillsammans med pastan."],
-    "ingredients": [
-        {
-            "name": "Svartkål",
-            "amount": 200,
-            "unit": "g"
-        },
-        {
-            "name": "Smör",
-            "amount": 2,
             "unit": "msk"
         },
         {
-            "name": "Crème fraiche",
-            "amount": 2.5,
-            "unit": "dl"
-        },
-        {
-            "name": "Vatten",
+            "name": "ägg",
             "amount": 2,
-            "unit": "dl"
-        },
-        {
-            "name": "Grönsaksbuljongtärning",
-            "amount": 1,
             "unit": "st"
         },
         {
-            "name": "citron",
-            "amount": 1,
-            "unit": "st"
+            "name": "salt",
+            "amount": 1.5,
+            "unit": "tsk",
         },
-         {
-            "name": "Basilika",
-            "amount": 1,
-            "unit": "kruka"
+        {
+            "name": "vetemjöl",
+            "amount": 5,
+            "unit": "dl",
         },
-         {
-            "name": "Salt",
-            "amount": 0.5,
-            "unit": "kruka"
-        },
-         {
-            "name": "Svartpeppar",
-            "amount": 3,
-            "unit": "kmr"
-        },
-         {
-            "name": "Laxfilé",
-            "amount": 4,
-            "unit": "st"
-        },
-         {
-            "name": "fettuccine",
+        {
+            "name": "kakao",
             "amount": 2,
-            "unit": "förp"
+            "unit": "dl",
+        },
+        {
+            "name": "vit choklad",
+            "amount": 100,
+            "unit": "g",
+        },
+        {
+            "name": "florsocker",
+            "amount": 2,
+            "unit": "dl",
+        },
+        {
+            "name": "vaniljsocker",
+            "amount": 1,
+            "unit": "msk",
         }
     ]
 }
-
-
-
 
 ###
 # Söker bland alla recept
@@ -182,7 +86,7 @@ GET {{baseUrl}}/recipes/632d9fcb6e7766b37d9837f5 HTTP/1.1
 ###
 
 # Tar bort ett recept
-DELETE {{baseUrl}}/recipes/633bdd8b91dc8ff8a20cfa7d HTTP/1.1
+DELETE {{baseUrl}}/recipes/633ec10091dc8ff8a20d015f HTTP/1.1
 
 ###
 

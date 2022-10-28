@@ -23,7 +23,7 @@
           >
           </star-rating>
 
-           {{ recipe.ingredients.length }} Ingredients |{{
+           {{ recipe.ingredients.length }} Ingredienser |{{
             recipe.timeInMins
           }}min
         </p>

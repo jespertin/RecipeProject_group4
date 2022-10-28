@@ -31,25 +31,23 @@ header {
   border-color: black;
   border-style: hidden hidden ridge;
   border-width: 1px;
-
-
 }
 
 .main {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 #buttonHome {
   color: black;
   text-decoration: none;
-  display: flex;
-
 }
 
 #name {
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  text-align: center;
-  flex-basis: 70%;
+  flex-basis: 25%;
+  text-align: end;
+  white-space: nowrap;
 }
 </style>
