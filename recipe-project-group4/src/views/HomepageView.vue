@@ -1,6 +1,6 @@
 <template>
   <div>
-    <banner :headerName="name" />
+    <banner :name="name" />
 
     <div id="mainContainer">
       <div id="navbarContainer">

@@ -6,14 +6,9 @@
       <div id="infoAndDescriptionContainer">
         <p id="description">{{ recipe.description }}</p>
         <p id="info">
-          <star-rating
-            v-if="recipe.avgRating"
-            id="starRating"
-            v-bind:showRating="false"
-            v-bind:increment="0.1"
-            v-bind:read-only="true"
-            v-bind:rating="parseFloat(recipe.avgRating.toFixed(1))"
-          >
+          <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="true" v-bind:increment="0.1"
+            v-bind:read-only="true" v-bind:star-size="parseInt(40)"
+            v-bind:rating="parseFloat(ratingScore.toFixed(1))">
           </star-rating>
           <star-rating
             v-else
@@ -58,12 +53,15 @@
 import StarRating from "vue-star-rating";
 
 export default {
+
   components: {
     StarRating,
   },
   props: {
     recipe: Object,
+    ratingScore: Number
   },
+  
 };
 </script>
 

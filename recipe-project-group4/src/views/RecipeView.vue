@@ -5,13 +5,13 @@ import Comments from '../components/comments.vue';
 </script>
 
 <template>
-    <Banner :headerName="name" />
+    <Banner :name="name" />
     <div id="flexContainer">
-        <SpecificRecipe :recipe="recipe"></SpecificRecipe>
-        <Rating />
+        <SpecificRecipe :recipe="recipe" :ratingScore="ratingScore"></SpecificRecipe>
+        <Rating v-on:response="(childHasVoted) => hasVoted = childHasVoted" />
         <Comments />
     </div>
-    <Foot/>
+    <Foot />
 </template>
 
 <script>
@@ -24,10 +24,12 @@ export default {
     data() {
         return {
             recipe: null,
+            ratingScore: 1.2,
             ratingTitle: 'Thank you!',
             ratingMessage: 'You rated this project:',
             starText: 'star/s',
-            name: ""
+            name: [],
+            hasVoted: false
         }
     },
     components: {
@@ -36,19 +38,31 @@ export default {
         Banner,
         Foot
     },
-    created() {
-        fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId)
-            .then(response => response.json())
-            .then(data => this.recipe = data)
-            .catch(error => console.log("error: " + error))
-            .finally(() => { this.name = this.recipe.title })
+    methods: {
+
+        loadRecipeData(){
+
+            fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId)
+                .then(response => response.json())
+                .then(data => this.recipe = data)
+                .catch(error => console.log("error: " + error))
+                .then(() => { this.ratingScore = this.recipe.avgRating, this.name = this.recipe.categories })
+        }
     },
 
+    created() {
+        this.loadRecipeData()
+    },
+
+    watch: {
+        hasVoted() {
+            this.loadRecipeData()
+        },
+    },
 }
 </script>
 
 <style scoped>
-/* La bara till en flex container för att kolla hur det såg ut centrerat */
 #flexContainer {
     display: flex;
     flex-direction: column;
