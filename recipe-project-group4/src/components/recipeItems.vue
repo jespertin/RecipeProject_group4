@@ -52,9 +52,8 @@ export default {
 #recipeListContainer {
     display: flex;
     flex-direction: row;
-    height: 100vh;
     flex-wrap: wrap;
-    overflow-y:scroll;
+    overflow-y:visible;
     justify-content: center;
 }
 
@@ -150,7 +149,6 @@ ul {
 }
 
 #ifListEmpty {
-    width: 100vw;
     text-align: center;
     font-style: italic;
 }

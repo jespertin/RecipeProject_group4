@@ -100,19 +100,22 @@ export default {
 }
 
 #navbarContainer {
-  align-self: flex-start;
+  display: flex;
+  flex-basis: 15%;
+  min-height: 1500px;
 }
 
 #componentContainer {
   margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 85%;
 }
 
 #recipeList{
-  height: 100vh;
 }
 
 #categoryMenu {
-  height: 100vh;
 }
 
 #searchBar {
