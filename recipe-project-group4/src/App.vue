@@ -30,40 +30,6 @@ html {
     font-size: 100%;
 }
 
-/* body {
-    background-color: #c7e9e9; 
-    margin: 0;
-    text-align: center;
-    font-family: 'Merriweather', serif;
-    color: #11999E;
-} */
-
-
-/* h1 {
-    color: #e8eeee;
-    margin: 0% auto 0 auto;
-    font-family: 'Merriweather', serif;
-    font-size: 2 rem;
-    font-weight: bold;
-    text-align: center;
-    flex: 1;
-}
-
-h2 {
-    color: #e8eeee;
-    margin: 0% auto 0 auto;
-    font-family: 'Merriweather', serif;
-    ;
-    font-weight: bold;
-    flex: 1;
-    text-align: center;
-} */
-
-
-/* h3 {
-    color: #11999E;
-    font-family: 'Montserrat', sans-serif;
-} */
 
 .routeTransition-enter-from {
     opacity: 0;

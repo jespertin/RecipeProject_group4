@@ -1,5 +1,6 @@
 <template>
-  <div>
+  <div id="homePageWrapper">
+
     <banner :name="name" />
 
     <div id="mainContainer">
@@ -8,14 +9,12 @@
       </div>
       <div id="componentContainer">
         <FilterRecipes id="searchBar" :recipes="apiData" @filtered-data="handleSearchEvent" />
-        <div id="testContainer">
-          <div id="listContainer">
-            <recipe-items id="recipeList" :mydata="listOfRecipes" />
-          </div>
-        </div>
+        <recipe-items id="recipeList" :mydata="listOfRecipes" />
       </div>
     </div>
-    <foot />
+
+    <foot/>
+
   </div>
 </template>
 
@@ -61,9 +60,11 @@ export default {
 
       }
     },
+
     handleSearchEvent(searchResult) {
       this.listOfRecipes = searchResult;
-    }
+    },
+
   },
   created() {
     this.$watch(
@@ -87,6 +88,10 @@ export default {
 </script>
 
 <style scoped>
+
+#homePageWrapper{
+  
+}
 #mainContainer {
   display: flex;
   flex-direction: row;
@@ -94,52 +99,28 @@ export default {
 
 }
 
-#componentContainer {
-  justify-content: center;
-  margin-top: 40px;
-  flex-direction: row;
-}
-
-#listContainer {
-  display: flex;
-  flex-direction: column;
-}
-
 #navbarContainer {
   align-self: flex-start;
+}
+
+#componentContainer {
+  margin-top: 40px;
+}
+
+#recipeList{
+  height: 100vh;
 }
 
 #categoryMenu {
   height: 100vh;
 }
 
-#recipeList {}
-
 #searchBar {
   align-self: center;
 }
 
-#buttonHome {
-  background: #19b9bf;
-  margin-inline-end: 19%;
-  border-radius: 20px;
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
-  font-size: 100%;
-  padding: 10px 15px 10px 15px;
-  text-decoration: none;
-  width: 20vw;
-}
-
-#buttonHome:hover {
-  background: #11cdd4;
-
-  text-decoration: none;
-}
-
 a {
   max-width: 13%;
-
 }
 
 .headerCurrentCategory {

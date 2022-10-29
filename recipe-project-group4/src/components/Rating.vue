@@ -87,17 +87,4 @@ h3{
   margin: 2rem auto;
 }
 
-.tyComment {
-  color: #11999E;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #e3d50d;
-  border: thick double #03031b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  box-sizing: border-box;
-  border-radius: 10px;
-
-}
 </style>

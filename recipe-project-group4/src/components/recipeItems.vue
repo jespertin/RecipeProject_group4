@@ -1,11 +1,12 @@
 <template>
-    <main v-if="mydata">
+    
+    
+    <div v-if="mydata">
         <div id="ifListEmpty" v-if="!mydata.length">
             <h2 id="listEmptyText">Inget recept hittat</h2>
         </div>
-
-        <router-link id="recipeLink" v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
-          
+        <div id="recipeListContainer">
+            <router-link id="recipeLink" v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
                 <div class="receptDiv">
                     <h1 id="recipeTitle">{{ recipe.title }}</h1>
                     <div class="pictureAndDescription">
@@ -23,11 +24,11 @@
                     </star-rating>
                     <p id="pStyle">Ingredienser: {{ recipe.ingredients.length }}</p>
                     <p id="pStyle">Tid: {{ recipe.timeInMins }}min</p>
-        
-            </div>
-        </router-link>
 
-    </main>
+                </div>
+            </router-link>
+        </div>
+    </div>
 </template>
 <script>
 
@@ -40,14 +41,32 @@ export default {
     name: "RecipeItems",
     props: {
         mydata: Array
-    }
+    },
+    
 }
 
 </script>
 
 <style scoped>
+
+#recipeListContainer {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+    flex-wrap: wrap;
+    overflow-y:scroll;
+    justify-content: center;
+}
+
 #recipeLink {
     margin-bottom: 20px;
+    flex-basis: 22%;
+    box-sizing: content-box;
+    margin-left: 20px;
+}
+
+#recipeLink :hover {
+    background-color: lightgray;
 }
 
 * {
@@ -67,8 +86,9 @@ img {
     height: 13rem;
     width: 13rem;
     border-radius: 20px;
-    margin: 0;
     border: solid 1px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 a {
@@ -76,15 +96,14 @@ a {
     text-decoration: none;
 }
 
-/* a:link :hover {
-  background-color: lightgray;
-} */
-
 .description {
     align-self: flex-start;
     width: 25rem;
     height: 13rem;
     overflow-y: auto;
+    margin-left: 15px;
+    margin-right: 10px;
+    font-size: 1.0rem;
 }
 
 .pictureAndDescription {
@@ -97,7 +116,7 @@ a {
 }
 
 .receptDiv {
-    width: 45rem;
+    width: 30rem;
     height: 25rem;
     border: 1px solid;
     display: flex;
@@ -110,17 +129,6 @@ a {
     box-sizing: content-box;
 }
 
-
-#recipeLink {
-    box-sizing: content-box;
-    flex-basis: 25%;
-}
-
-#recipeLink :hover {
-    background-color: lightgray;
-}
-
-#info {}
 
 h1 {
     text-align: center;

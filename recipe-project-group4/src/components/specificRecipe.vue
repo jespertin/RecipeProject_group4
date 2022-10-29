@@ -6,7 +6,7 @@
       <div id="infoAndDescriptionContainer">
         <p id="description">{{ recipe.description }}</p>
         <p id="info">
-          <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="true" v-bind:increment="0.1"
+          <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="false" v-bind:increment="0.1"
             v-bind:read-only="true" v-bind:star-size="parseInt(40)"
             v-bind:rating="parseFloat(ratingScore.toFixed(1))">
           </star-rating>
@@ -68,7 +68,7 @@ export default {
 <style scoped>
 * {
   font-size: 20px;
-  font-family: "Courier New", Courier, monospace;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   font-weight: 700;
 }
 

@@ -40,8 +40,7 @@ div {
   flex-direction: column;
   justify-content: flex;
   width: 12rem;
-  border-radius: 20px;
-  margin-left: 10px;
+  border-radius: 0px 20px 20px 0px;
   background-color: white;
   border: solid 1px;
 }
