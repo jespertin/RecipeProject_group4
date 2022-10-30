@@ -5,6 +5,7 @@
       <h3 v-if="commentSent"> Tack för din kommentar! </h3>
 
       <div v-else class="containerComment">
+
         <div id="commentTextInputDiv">
           <textarea placeholder="Skriv din kommentar" name="newCommentText" v-model="newCommentText"
             v-on:input="toggleDisable()"></textarea>
@@ -19,6 +20,7 @@
     </div>
 
     <div id="commentList">
+
       <ul v-if="commentDataArray">
         <div class="containerComment" id="commentSingleDiv" v-for="comment in commentDataArray.slice(0, commentLimit)"
           :key="comment.id">
@@ -31,6 +33,15 @@
             v-on:click="loadMoreComments()"> Load more comments</button>
         </div>
       </ul>
+
+      <ul v-else>
+        <div class="containerComment" id="commentSingleDiv" v-for="n in 3">
+          <p id="commentNameField"><div class="skeleton skeleton-text"></div></p>
+          <p id="commentDateField"><div class="skeleton skeleton-text"></div></p>
+          <p id="commentTextField"><div class="skeleton skeleton-text"></div></p>
+        </div>
+      </ul>
+
     </div>
 
 
@@ -135,6 +146,32 @@ export default {
 }
 </script>
 <style scoped>
+.skeleton {
+  opacity: .7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: .5rem;
+  margin-bottom: 0.25rem;
+  border-radius: .25rem;
+}
+
+.skeleton-text:last-child{
+  width: 80%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
+
 .containerCommentSectionWrapper {
   display: flex;
   flex-direction: column;

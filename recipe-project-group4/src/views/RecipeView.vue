@@ -1,9 +1,3 @@
-<script setup>
-
-import Comments from '../components/comments.vue';
-
-</script>
-
 <template>
     <div id="recipeViewWrapper">
         <Banner :name="name" />
@@ -21,6 +15,7 @@ import SpecificRecipe from '../components/specificRecipe.vue'
 import Rating from '../components/Rating.vue'
 import Banner from '../components/banner.vue'
 import Foot from '../components/foot.vue'
+import Comments from '../components/comments.vue';
 
 export default {
     data() {
@@ -38,7 +33,8 @@ export default {
         SpecificRecipe,
         Rating,
         Banner,
-        Foot
+        Foot,
+        Comments
     },
     methods: {
 
