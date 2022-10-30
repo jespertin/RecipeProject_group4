@@ -90,7 +90,9 @@ export default {
 <style scoped>
 
 #homePageWrapper{
-  
+  min-width: 1000px;
+  display: flex;
+  flex-direction: column;
 }
 #mainContainer {
   display: flex;
@@ -116,10 +118,6 @@ export default {
 }
 
 #categoryMenu {
-}
-
-#searchBar {
-  align-self: center;
 }
 
 a {

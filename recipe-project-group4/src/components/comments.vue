@@ -237,6 +237,8 @@ button {
   width: 70%;
   border-radius: 40px;
   cursor: pointer;
+  overflow: hidden;
+  word-break: keep-all;
 }
 
 button:disabled {

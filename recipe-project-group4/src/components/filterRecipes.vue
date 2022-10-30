@@ -56,6 +56,7 @@ export default {
     width: 50%;
     text-align: left;
     display: flex;
+    justify-content: center;
 
 }
 

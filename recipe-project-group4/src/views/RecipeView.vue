@@ -5,13 +5,15 @@ import Comments from '../components/comments.vue';
 </script>
 
 <template>
-    <Banner :name="name" />
-    <div id="flexContainer">
-        <SpecificRecipe :recipe="recipe" :ratingScore="ratingScore"></SpecificRecipe>
-        <Rating v-on:response="(childHasVoted) => hasVoted = childHasVoted" />
-        <Comments />
+    <div id="recipeViewWrapper">
+        <Banner :name="name" />
+        <div id="flexContainer">
+            <SpecificRecipe :recipe="recipe" :ratingScore="ratingScore"></SpecificRecipe>
+            <Rating v-on:response="(childHasVoted) => hasVoted = childHasVoted" />
+            <Comments />
+        </div>
+        <Foot />
     </div>
-    <Foot />
 </template>
 
 <script>
@@ -40,7 +42,7 @@ export default {
     },
     methods: {
 
-        loadRecipeData(){
+        loadRecipeData() {
 
             fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId)
                 .then(response => response.json())
@@ -63,6 +65,11 @@ export default {
 </script>
 
 <style scoped>
+
+#recipeViewWrapper{
+    display: flex;
+    flex-direction: column;
+}
 #flexContainer {
     display: flex;
     flex-direction: column;
