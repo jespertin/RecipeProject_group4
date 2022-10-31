@@ -19,7 +19,11 @@ const router = createRouter({
       name: 'specificRecipe',
       component: () => import('../views/RecipeView.vue')
     }
-  ]
+  ],
+  scrollBehavior(to, from, savedPosition) {
+    // always scroll to top
+    return { top: 0 }
+  }
 })
 
 export default router

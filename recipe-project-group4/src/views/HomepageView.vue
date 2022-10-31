@@ -1,21 +1,18 @@
 <template>
-  <div>
-    <banner :name="name" />
 
-    <div id="mainContainer">
-      <div id="navbarContainer">
-        <categories-nav-list id="categoryMenu" />
-      </div>
-      <div id="componentContainer">
-        <FilterRecipes id="searchBar" :recipes="apiData" @filtered-data="handleSearchEvent" />
-        <div id="testContainer">
-          <div id="listContainer">
-            <recipe-items id="recipeList" :mydata="listOfRecipes" />
-          </div>
-        </div>
-      </div>
+  <div id="mainContainer">
+    <banner :name="name" />
+    <div id="navbarContainer">
+      <categories-nav-list id="categoryMenu" />
     </div>
-    <foot />
+    <div id="recipesAndSearchbarContainer">
+      <FilterRecipes id="searchBar" :recipes="apiData" @filtered-data="handleSearchEvent" />
+
+      <recipe-items id="recipeList" :mydata="listOfRecipes" />
+    </div>
+    <div id="footerContainer">
+      <foot />
+    </div>
   </div>
 </template>
 
@@ -87,72 +84,60 @@ export default {
 </script>
 
 <style scoped>
-#mainContainer {
-  display: flex;
-  flex-direction: row;
+
+#footerContainer {
   width: 100%;
-
+  clear: both;
 }
 
-#componentContainer {
-  justify-content: center;
-  margin-top: 40px;
-  flex-direction: row;
+#mainContainer {
+  width: 100%;
 }
 
-#listContainer {
-  display: flex;
-  flex-direction: column;
+#recipesAndSearchbarContainer {
+  float: right;
+  width: 84%;
+  margin: auto;
 }
+
+#componentContainer {}
 
 #navbarContainer {
-  align-self: flex-start;
+  float: left;
+  width: 15%;
 }
 
 #categoryMenu {
   height: 100vh;
-}
-
-#recipeList {}
-
-#searchBar {
-  align-self: center;
-}
-
-#buttonHome {
-  background: #19b9bf;
-  margin-inline-end: 19%;
-  border-radius: 20px;
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
-  font-size: 100%;
-  padding: 10px 15px 10px 15px;
-  text-decoration: none;
-  width: 20vw;
-}
-
-#buttonHome:hover {
-  background: #11cdd4;
-
-  text-decoration: none;
-}
-
-a {
-  max-width: 13%;
-
-}
-
-.headerCurrentCategory {
   width: 15vw;
 }
 
-@media screen and (max-width: 1000px) {
-  #componentContainer {
-    flex-wrap: wrap;
-  }
+#recipeList {
+}
+
+#searchBar {
+  align-self: center;
+  width: 50%;
+}
+
+
+@media screen and (max-width: 700px) {
+  #recipesAndSearchbarContainer {}
 
   #categoryMenu {
     height: auto;
+    width: 94%;
+    margin-right: 3%;
+    margin-left: 3%;
+  }
+
+  #navbarContainer {
+    float: none;
+    width: 100%;
+  }
+
+  #recipesAndSearchbarContainer {
+    float: none;
   }
 }
 </style>

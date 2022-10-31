@@ -13,6 +13,10 @@ export default {
 </script>
 <style scoped>
 
+footer{
+    width: 100%;
+}
+
 #footer-container {
     background-color:rgba(190, 232, 238, 0.966);
     padding-top: 0%;

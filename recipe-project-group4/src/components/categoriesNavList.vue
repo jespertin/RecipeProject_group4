@@ -1,6 +1,6 @@
 <template>
 
-  <div>
+  <div id="menu-container">
     <h3>Kategorier</h3>
     <ul v-if="apiData">
       <router-link class="routerLink" v-for="category in apiData" :to="'/category/' + category.name">
@@ -39,7 +39,6 @@ div {
   display: flex;
   flex-direction: column;
   justify-content: flex;
-  width: 12rem;
   border-radius: 20px;
   margin-left: 10px;
   background-color: white;
@@ -54,7 +53,7 @@ ul {
 }
 
 li {
-color: black;
+  color: black;
 }
 
 h3 {
@@ -78,7 +77,6 @@ a {
   border: 1px solid transparent;
   cursor: pointer;
   border-radius: 20px;
-
 }
 
 a.router-link-active {
@@ -91,5 +89,19 @@ a.router-link-active {
 a:hover {
   background: lightgray;
   border-radius: 0;
+}
+
+@media screen and (max-width: 900px) {
+  #menu-container {
+    width: 100%;
+  }
+
+  li {
+    display: inline;
+  }
+
+  .routerLink {
+    display: inline;
+  }
 }
 </style>
