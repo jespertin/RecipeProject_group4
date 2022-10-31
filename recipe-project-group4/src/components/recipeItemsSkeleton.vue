@@ -1,56 +1,33 @@
 <template>
 
-
-    <div v-if="mydata">
-        <div id="ifListEmpty" v-if="!mydata.length">
-            <h2 id="listEmptyText">Inget recept hittat</h2>
+    <div>
+        <div id="searchBarSkeleton">
+        <div class="skeleton skeleton-text"></div>
+        <div class="skeleton skeleton-text"></div>
         </div>
-        <div id="recipeListContainer">
-            <router-link id="recipeLink" v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
-                <div class="receptDiv">
-                    <h1 id="recipeTitle">{{ recipe.title }}</h1>
-                    <div class="pictureAndDescription">
-                        <p class="description" id="info">{{ recipe.description }}</p>
-                        <img :src="recipe.imageUrl" alt="pictureOfFood" />
-                    </div>
-                    <star-rating v-if="recipe.avgRating" class="starRating" v-bind:showRating="false"
-                        v-bind:increment="0.1" v-bind:read-only="true"
-                        v-bind:rating="parseFloat(recipe.avgRating.toFixed(1))" inactive-color="white"
-                        border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size="parseInt(25)">
-                    </star-rating>
-                    <star-rating v-else class="starRating" v-bind:read-only="true" v-bind:showRating="false"
-                        inactive-color="white" border-color="black" v-bind:border-width="parseInt(2)"
-                        v-bind:star-size="parseInt(25)">
-                    </star-rating>
-                    <p id="pStyle">Ingredienser: {{ recipe.ingredients.length }}</p>
-                    <p id="pStyle">Tid: {{ recipe.timeInMins }}min</p>
-
-                </div>
-            </router-link>
-        </div>
-    </div>
-
-
-    <div v-else>
         <div id="recipeListContainer">
             <div id="recipeLink" v-for="n in 8">
                 <div class="receptDiv">
-                    <h1 id="recipeTitle">
-                        <div class="skeleton skeleton-text"></div>
-                    </h1>
+
+                    <div id="recipeTitle" class="skeleton skeleton-text"></div>
+
                     <div class="pictureAndDescription">
-                        <p class="description" id="info">
-                        <div class="skeleton skeleton-text"></div>
-                        <div class="skeleton skeleton-text"></div>
-                        <div class="skeleton skeleton-text"></div>
-                        <div class="skeleton skeleton-text"></div>
-                        </p>
+                        <div class="description" id="info">
+                            <ul v-for="n in 10">
+                                <div class="skeleton skeleton-text"></div>
+                            </ul>
+
+                        </div>
                         <div class="skeleton skeleton-img"></div>
-                        
+
                     </div>
                     <div class="skeleton skeleton-text"></div>
-                    <p id="pStyle"> <div class="skeleton skeleton-text"></div></p>
-                    <p id="pStyle"> <div class="skeleton skeleton-text"></div></p>
+
+                    <div class="skeleton skeleton-text"></div>
+
+
+                    <div class="skeleton skeleton-text"></div>
+
 
                 </div>
             </div>
@@ -59,21 +36,11 @@
 </template>
 <script>
 
-import StarRating from 'vue-star-rating'
-
 export default {
-    components: {
-        StarRating
-    },
-    name: "RecipeItems",
-    props: {
-        mydata: Array
-    },
 
 }
 
 </script>
-
 <style scoped>
 .skeleton {
     opacity: .7;
@@ -81,17 +48,19 @@ export default {
 }
 
 .skeleton-img {
-    width: 13vw;
+    width: 20vw;
     height: 200px;
     border-radius: 20px;
     margin-top: 15px;
+    margin-right: 10px;
 }
 
 .skeleton-text {
     width: 100%;
     height: .5rem;
-    margin-bottom: 0.25rem;
+    margin-bottom: -0.75rem;
     margin-top: 0.25rem;
+    margin-right: 10px;
     border-radius: .25rem;
 }
 
@@ -109,6 +78,15 @@ export default {
     }
 }
 
+#searchBarSkeleton{
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    width: 50%;
+    height: 20px;
+    justify-content: center;
+}
 #recipeListContainer {
     display: flex;
     flex-direction: row;
@@ -231,4 +209,3 @@ ul {
 
 }
 </style>
-

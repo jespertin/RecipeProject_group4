@@ -7,7 +7,11 @@
       <div id="navbarContainer">
         <categories-nav-list id="categoryMenu" />
       </div>
-      <div id="componentContainer">
+      
+      <div v-if="!listOfRecipes" id="componentContainerSkeleton">
+        <RecipeItemsSkeleton></RecipeItemsSkeleton>
+      </div>
+      <div v-else id="componentContainer">
         <FilterRecipes id="searchBar" :recipes="apiData" @filtered-data="handleSearchEvent" />
         <recipe-items id="recipeList" :mydata="listOfRecipes" />
       </div>
@@ -24,6 +28,7 @@ import CategoriesNavList from "../components/categoriesNavList.vue";
 import Banner from '../components/banner.vue'
 import Foot from '../components/foot.vue'
 import FilterRecipes from "../components/filterRecipes.vue";
+import RecipeItemsSkeleton from "../components/recipeItemsSkeleton.vue";
 
 
 export default {
@@ -32,7 +37,8 @@ export default {
     CategoriesNavList,
     Banner,
     Foot,
-    FilterRecipes
+    FilterRecipes,
+    RecipeItemsSkeleton
   },
   data() {
     return {
@@ -108,6 +114,13 @@ export default {
 }
 
 #componentContainer {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 85%;
+}
+
+#componentContainerSkeleton {
   margin-top: 40px;
   display: flex;
   flex-direction: column;
