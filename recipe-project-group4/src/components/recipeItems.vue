@@ -105,7 +105,7 @@ a {
     background-color: white;
     padding-left: 2px;
     padding-right: 2px;
-    height: 45vh;
+    height: 35vh;
     width: 35vw;
     margin-bottom: 20px;
 
@@ -157,30 +157,25 @@ ul {
 }
 
 @media screen and (max-width: 900px) {
-    /* .receptDiv {
-        flex-wrap: wrap;
-        flex-direction: column;
-    }
-    .pictureAndDescription{
-        flex-direction: column;
-        
-    } */
+
     .recipe-link{
         flex-basis: 100%;
         width: 100%;
         align-self: center;
     }
     .receptDiv{
-        width: 100%;
+        width: 94%;
+        margin-right: 1%;
+        margin-left: 3%;
     }
 
 }
 
-/* @media screen and (max-width: 1100px) {
-    html {
-        font-size: 70%;
+ @media screen and (max-width: 500px) {
+    #recipeTitle {
+        font-size: 1.3rem;
     }
 
-} */
+} 
 </style>
 

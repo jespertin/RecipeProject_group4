@@ -27,7 +27,6 @@ body {
 
 html {
     overflow-y: scroll;
-    font-size: 100%;
 }
 
 /* body {

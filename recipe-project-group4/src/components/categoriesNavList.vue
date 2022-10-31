@@ -40,14 +40,15 @@ div {
   flex-direction: column;
   justify-content: flex;
   border-radius: 20px;
-  margin-left: 10px;
+  margin-left: 3%;
+  margin-top: 3%;
   background-color: white;
   border: solid 1px;
 }
 
 ul {
   list-style: none;
-  padding-left: 0;
+  padding-left: 2%;
   display: flex;
   flex-direction: column;
 }
@@ -102,6 +103,25 @@ a:hover {
 
   .routerLink {
     display: inline;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #menu-container {
+    width: 100%;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  h3{
+    text-align: center;
   }
 }
 </style>
