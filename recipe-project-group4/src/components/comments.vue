@@ -31,10 +31,25 @@
             v-on:click="loadMoreComments()"> Load more comments</button>
         </div>
       </ul>
+
+      <ul v-else>
+        <div class="containerComment" id="commentSingleDiv" v-for="n in 3">
+          <p id="commentNameField">
+          <div class="skeleton skeleton-text"></div>
+          </p>
+          <p id="commentDateField">
+          <div class="skeleton skeleton-text"></div>
+          </p>
+          <p id="commentTextField">
+          <div class="skeleton skeleton-text"></div>
+          </p>
+        </div>
+      </ul>
+
     </div>
 
-
   </div>
+
 </template>
 
 <script>
@@ -267,5 +282,30 @@ button:disabled {
   border-style: hidden;
   font-weight: bold;
   width: 50%;
+}
+.skeleton {
+  opacity: .7;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-text {
+  width: 100%;
+  height: .5rem;
+  margin-bottom: 0.25rem;
+  border-radius: .25rem;
+}
+
+.skeleton-text:last-child {
+  width: 80%;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 70%);
+  }
+
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
 }
 </style>

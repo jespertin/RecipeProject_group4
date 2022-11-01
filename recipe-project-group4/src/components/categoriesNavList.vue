@@ -97,13 +97,6 @@ a:hover {
     width: 100%;
   }
 
-  li {
-    display: inline;
-  }
-
-  .routerLink {
-    display: inline;
-  }
 }
 
 @media screen and (max-width: 800px) {

@@ -110,11 +110,11 @@ export default {
 #navbarContainer {
   float: left;
   width: 15%;
+  
 }
 
 #categoryMenu {
-  height: 100vh;
-
+ 
 }
 
 #recipeList {}
@@ -128,7 +128,6 @@ export default {
 
 
 @media screen and (max-width: 800px) {
-  #recipesAndSearchbarContainer {}
 
   #categoryMenu {
     height: auto;
@@ -142,10 +141,9 @@ export default {
     float: none;
     width: 100%;
   }
-
-  #recipesAndSearchbarContainer {
+  .recipesAndSearchbarContainer {
     float: none;
-    width: 94%;
+    width: 100%;
   }
 
   #searchBar {

@@ -109,6 +109,7 @@ a {
     width: 400px;
 
 }
+
 .recipe-link :hover {
     background-color: lightgray;
 }
@@ -156,14 +157,14 @@ ul {
     font-size: 1.7rem;
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 800px) {
 
-    .recipe-link{
+    .recipe-link {
         flex-basis: 100%;
-        width: 100%;
         align-self: center;
     }
-    .receptDiv{
+
+    .receptDiv {
         width: 94%;
         margin-right: 1%;
         margin-left: 3%;
@@ -171,11 +172,11 @@ ul {
 
 }
 
- @media screen and (max-width: 500px) {
+@media screen and (max-width: 500px) {
     #recipeTitle {
         font-size: 1.3rem;
     }
 
-} 
+}
 </style>
 
