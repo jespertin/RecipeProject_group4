@@ -105,9 +105,8 @@ a {
     background-color: white;
     padding-left: 2px;
     padding-right: 2px;
-    height: 35vh;
-    width: 35vw;
-    margin-bottom: 20px;
+    height: 300px;
+    width: 400px;
 
 }
 .recipe-link :hover {
@@ -131,8 +130,9 @@ h1 {
 }
 
 .recipe-link {
-    flex-basis: 45%;
+    flex-basis: 20%;
     height: 50%;
+    margin-bottom: 20px;
 }
 
 ul {

@@ -17,7 +17,10 @@
 
 export default {
   props: {
-    name: undefined
+    name: {
+      type: undefined,
+      default: ""
+    }
   }
 }
 </script>

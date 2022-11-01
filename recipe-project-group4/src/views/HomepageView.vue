@@ -5,7 +5,11 @@
     <div id="navbarContainer">
       <categories-nav-list id="categoryMenu" />
     </div>
-    <div id="recipesAndSearchbarContainer">
+    <div v-if="!listOfRecipes" class="recipesAndSearchbarContainer">
+      <RecipeItemsSkeleton></RecipeItemsSkeleton>
+    </div>
+
+    <div v-else class="recipesAndSearchbarContainer">
       <FilterRecipes id="searchBar" :recipes="apiData" @filtered-data="handleSearchEvent" />
 
       <recipe-items id="recipeList" :mydata="listOfRecipes" />
@@ -22,6 +26,7 @@ import CategoriesNavList from "../components/categoriesNavList.vue";
 import Banner from '../components/banner.vue'
 import Foot from '../components/foot.vue'
 import FilterRecipes from "../components/filterRecipes.vue";
+import RecipeItemsSkeleton from "../components/recipeItemsSkeleton.vue";
 
 
 export default {
@@ -30,7 +35,8 @@ export default {
     CategoriesNavList,
     Banner,
     Foot,
-    FilterRecipes
+    FilterRecipes,
+    RecipeItemsSkeleton
   },
   data() {
     return {
@@ -84,7 +90,6 @@ export default {
 </script>
 
 <style scoped>
-
 #footerContainer {
   width: 100%;
   clear: both;
@@ -94,7 +99,7 @@ export default {
   width: 100%;
 }
 
-#recipesAndSearchbarContainer {
+.recipesAndSearchbarContainer {
   float: right;
   width: 84%;
   margin: auto;
@@ -109,11 +114,10 @@ export default {
 
 #categoryMenu {
   height: 100vh;
-  
+
 }
 
-#recipeList {
-}
+#recipeList {}
 
 #searchBar {
   align-self: center;
@@ -143,7 +147,8 @@ export default {
     float: none;
     width: 94%;
   }
-  #searchBar{
+
+  #searchBar {
     width: 94%;
     margin-bottom: 3%;
   }
