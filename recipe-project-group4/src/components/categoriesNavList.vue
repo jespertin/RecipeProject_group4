@@ -31,17 +31,19 @@ export default {
 
 <style scoped>
 * {
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 1.1rem;
 }
 
 div {
   display: flex;
   flex-direction: column;
   justify-content: flex;
-  width: 170px;
+  width: 12rem;
   border-radius: 20px;
-
-  background-color: rgba(190, 232, 238, 0.966);
+  margin-left: 10px;
+  background-color: white;
+  border: solid 1px;
 }
 
 ul {
@@ -49,18 +51,16 @@ ul {
   padding-left: 0;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  justify-content: space-around;
 }
 
 li {
-  text-align: left;
-
+color: black;
 }
 
 h3 {
   text-align: left;
   color: black;
+  font-size: 1.3rem;
 
 }
 
@@ -69,8 +69,7 @@ h3 {
 }
 
 p {
-  color: black;
-
+  margin-left: 10px;
 }
 
 a {
@@ -83,7 +82,7 @@ a {
 }
 
 a.router-link-active {
-  font-weight: 800;
+  font-weight: 900;
   pointer-events: none;
   cursor: default;
 }

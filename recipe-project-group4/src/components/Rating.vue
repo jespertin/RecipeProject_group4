@@ -1,7 +1,6 @@
 <template>
   <div id="Border">
-    <div>
-      <div v-if="!hasVoted">
+    <div v-if="!hasVoted">
       <h2>Vad tyckte du om receptet?</h2>
       <h3>Klicka på en stjärna för att ge ditt betyg!</h3>
       </div>
@@ -17,8 +16,6 @@
       </form>
     </div>
 
-  </div>
-
 </template>
   
 <script>
@@ -32,17 +29,22 @@ export default {
     return {
       chosenRating: null,
       hasVoted: false,
-      inactiveColor:"#eaec53"
+      inactiveColor: "#eaec53"
     };
   },
 
+  emits: ['response'],
+
+  watch: {
+    hasVoted() {
+      this.$emit( 'response' , this.hasVoted)
+    },
+  },
   methods: {
     setRating(rating) {
       this.chosenRating = rating;
     },
     addRating() {
-      console.log(this.chosenRating)
-
 
       fetch('https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/' + this.$route.params.recipeId + "/ratings", {
         method: 'POST',
@@ -53,9 +55,8 @@ export default {
           'Content-type': 'application/json; charset=UTF-8',
         },
       })
-
-      this.hasVoted = true
-      this.inactiveColor = "white"
+      .then((response) => { if (response.ok) {this.hasVoted = true, this.inactiveColor = "white" }})
+      
     },
   }
 }
@@ -70,16 +71,17 @@ export default {
 
 
 h2 {
-  color: #11999E;
+  color: #f5390a;
   font-family: 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+h3{
+  text-align: center;
 }
 
 #Border {
   margin: 2rem auto;
-  max-width: 40rem;
-  padding: 1rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
 }
 
 </style>

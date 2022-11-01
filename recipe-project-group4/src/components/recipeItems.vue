@@ -1,11 +1,11 @@
 <template>
-    <!-- flexbasis för att få listan att ha 2 columner -->
     <main v-if="mydata">
         <div id="ifListEmpty" v-if="!mydata.length">
             <h2 id="listEmptyText">Inget recept hittat</h2>
         </div>
+
         <router-link id="recipeLink" v-for="recipe in mydata" :to="'/recipe/' + recipe._id">
-            <div class="divHover">
+          
                 <div class="receptDiv">
                     <h1 id="recipeTitle">{{ recipe.title }}</h1>
                     <div class="pictureAndDescription">
@@ -15,16 +15,18 @@
                     <star-rating v-if="recipe.avgRating" class="starRating" v-bind:showRating="false"
                         v-bind:increment="0.1" v-bind:read-only="true"
                         v-bind:rating="parseFloat(recipe.avgRating.toFixed(1))" inactive-color="white"
-                        border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size= "parseInt(25)">
+                        border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size="parseInt(25)">
                     </star-rating>
                     <star-rating v-else class="starRating" v-bind:read-only="true" v-bind:showRating="false"
-                        inactive-color="white" border-color="black" v-bind:border-width="parseInt(2)" v-bind:star-size= "parseInt(25)">
+                        inactive-color="white" border-color="black" v-bind:border-width="parseInt(2)"
+                        v-bind:star-size="parseInt(25)">
                     </star-rating>
-                    <p id="pStyle">Ingredients: {{ recipe.ingredients.length }}</p>
-                    <p id="pStyle">Time: {{ recipe.timeInMins }}min</p>
-                </div>
+                    <p id="pStyle">Ingredienser: {{ recipe.ingredients.length }}</p>
+                    <p id="pStyle">Tid: {{ recipe.timeInMins }}min</p>
+        
             </div>
         </router-link>
+
     </main>
 </template>
 <script>
@@ -44,9 +46,13 @@ export default {
 </script>
 
 <style scoped>
+#recipeLink {
+    margin-bottom: 20px;
+}
+
 * {
-    font-family: "Courier New", Courier, monospace;
-    font-weight: 700;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500;
     font-size: 1.2rem;
 }
 
@@ -54,6 +60,7 @@ export default {
     background-color: rgba(190, 232, 238, 0.966);
     border-radius: 5px;
     padding: 5px;
+    pointer-events: none;
 }
 
 img {
@@ -93,7 +100,6 @@ a {
     width: 45rem;
     height: 25rem;
     border: 1px solid;
-    margin-bottom: 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -101,16 +107,20 @@ a {
     flex-wrap: wrap;
     border-radius: 20px;
     background-color: white;
-    
+    box-sizing: content-box;
 }
 
-.divHover :hover {
+
+#recipeLink {
+    box-sizing: content-box;
+    flex-basis: 25%;
+}
+
+#recipeLink :hover {
     background-color: lightgray;
 }
 
-#info {
-
-}
+#info {}
 
 h1 {
     text-align: center;
@@ -122,7 +132,7 @@ h1 {
 main {
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
 }
@@ -132,7 +142,7 @@ ul {
 }
 
 #ifListEmpty {
-    width: 40vw;
+    width: 100vw;
     text-align: center;
     font-style: italic;
 }
@@ -146,6 +156,13 @@ ul {
     overflow: hidden;
     text-overflow: ellipsis;
     font-size: 1.7rem;
+}
+
+@media screen and (max-width: 750px) {
+    .receptDiv {
+        width: 80vw;
+    }
+
 }
 </style>
 

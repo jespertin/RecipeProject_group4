@@ -14,7 +14,7 @@ export default {
 <style scoped>
 
 #footer-container {
-    background-color: #6569a8;
+    background-color:rgba(190, 232, 238, 0.966);
     padding-top: 0%;
     border-bottom: 5%;
     margin-top: 0%;
@@ -23,7 +23,7 @@ export default {
 }
 
 #copyright {
-    color: #EAF6F6;
+    color: rgb(56, 16, 0);
     font-size: 150%;
     font-family: 'Merriweather', serif;
     padding: 20px 0;
