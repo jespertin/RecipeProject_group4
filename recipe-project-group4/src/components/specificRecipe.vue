@@ -1,28 +1,27 @@
 <template>
-  <main v-if="recipe">
+  <div class="recipe-flex-container" v-if="recipe">
     <h1>{{ recipe.title }}</h1>
 
     <div id="imgAndDesc">
       <div id="infoAndDescriptionContainer">
         <p id="description">{{ recipe.description }}</p>
-        <p id="info">
-          <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="true" v-bind:increment="0.1"
+        <div id="info">
+          <star-rating v-if="recipe.avgRating" id="starRating" v-bind:showRating="false" v-bind:increment="0.1"
             v-bind:read-only="true" v-bind:star-size="parseInt(40)" v-bind:rating="parseFloat(ratingScore.toFixed(1))">
           </star-rating>
           <star-rating v-else v-bind:showRating="false" id="starRating" v-bind:read-only="true">
           </star-rating>
 
-          {{ recipe.ingredients.length }} Ingredienser |{{
-              recipe.timeInMins
-          }}min
-        </p>
+          <span>{{ recipe.ingredients.length }} Ingredienser |{{ recipe.timeInMins }}min
+          </span>
+        </div>
       </div>
 
       <div id="pictureContainer">
         <img :src="recipe.imageUrl" alt="pictureOfFood" />
       </div>
     </div>
-    <div id="ingredientsAndInstructions">
+    <div class="ingredientsAndInstructions">
       <section id="ingredients">
         <h3>Ingredienser</h3>
         <ul v-for="ingredient in recipe.ingredients">
@@ -40,8 +39,8 @@
         </ul>
       </section>
     </div>
-  </main>
-  <main id="skeletonMain" v-else>
+  </div>
+  <div class="recipe-flex-container" v-else>
     <div class="skeleton skeleton-text"></div>
     <div class="skeleton skeleton-text"></div>
     <div id="imgAndDesc">
@@ -60,7 +59,7 @@
         <div class="skeleton skeleton-img"></div>
       </div>
     </div>
-    <div id="ingredientsAndInstructions">
+    <div class="ingredientsAndInstructions">
       <section id="ingredients">
         <h3>Ingredienser</h3>
         <ul v-for="n in 5">
@@ -80,7 +79,7 @@
         </ul>
       </section>
     </div>
-  </main>
+  </div>
 </template>
 
 <script>
@@ -106,7 +105,7 @@ export default {
   font-weight: 700;
 }
 
-main {
+.recipe-flex-container {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -116,14 +115,22 @@ main {
   border-bottom: solid 1px;
 }
 
+#description {
+  margin-top: 0;
+}
+
 ul {
   list-style: none;
   padding: 0;
 }
 
 img {
-  width: 13vw;
+  width: 100%;
   border-radius: 20px;
+}
+
+#pictureContainer {
+  width: 40%;
 }
 
 #infoAndDescriptionContainer {
@@ -141,8 +148,6 @@ img {
   padding: 5px;
 }
 
-
-
 section {
   width: 50%;
 }
@@ -158,7 +163,7 @@ h1 {
   width: 30%;
 }
 
-#ingredientsAndInstructions {
+.ingredientsAndInstructions {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -189,16 +194,20 @@ li {
   border-radius: 5px;
   padding: 5px;
 }
+
 .skeleton {
   opacity: .7;
   animation: skeleton-loading 1s linear infinite alternate;
+  width: 100%;
 }
-.skeleton-img{
+
+.skeleton-img {
   width: 13vw;
   height: 200px;
   border-radius: 20px;
   margin-top: 15px;
 }
+
 .skeleton-text {
   width: 100%;
   height: .5rem;
@@ -206,15 +215,50 @@ li {
   margin-top: 0.25rem;
   border-radius: .25rem;
 }
+
 .skeleton-text:last-child {
   width: 80%;
 }
+
 @keyframes skeleton-loading {
   0% {
     background-color: hsl(200, 20%, 70%);
   }
+
   100% {
     background-color: hsl(200, 20%, 95%);
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .ingredientsAndInstructions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #ingredients {
+    width: 100%;
+  }
+
+  #instructions {
+    width: 100%;
+  }
+
+  #imgAndDesc {
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  #description {
+    width: 100%;
+  }
+
+  #infoAndDescriptionContainer {
+    width: 100%;
+  }
+
+  #info {
+    align-self: center;
   }
 }
 </style>

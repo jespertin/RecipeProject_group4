@@ -2,9 +2,7 @@
 
   <div id="mainContainer">
     <banner :name="name" />
-    <div id="navbarContainer">
-      <categories-nav-list id="categoryMenu" />
-    </div>
+    <categories-nav-list id="categoryMenu" />
     <div v-if="!listOfRecipes" class="recipesAndSearchbarContainer">
       <RecipeItemsSkeleton></RecipeItemsSkeleton>
     </div>
@@ -96,7 +94,7 @@ export default {
 }
 
 #mainContainer {
-  width: 100%;
+  width: auto;
 }
 
 .recipesAndSearchbarContainer {
@@ -107,14 +105,14 @@ export default {
 
 #componentContainer {}
 
-#navbarContainer {
-  float: left;
-  width: 15%;
-  
-}
+#navbarContainer {}
 
 #categoryMenu {
- 
+  float: left;
+  width: 15%;
+  height: 500px;
+  overflow-y: auto;
+
 }
 
 #recipeList {}
@@ -130,20 +128,21 @@ export default {
 @media screen and (max-width: 800px) {
 
   #categoryMenu {
+    float: none;
     height: auto;
     width: 94%;
     margin-right: 3%;
     margin-left: 3%;
     margin-bottom: 3%;
+    border-radius: 20px;
   }
 
-  #navbarContainer {
-    float: none;
-    width: 100%;
-  }
+
   .recipesAndSearchbarContainer {
     float: none;
     width: 100%;
+    margin-right: 1%;
+    margin-left: 1%;
   }
 
   #searchBar {

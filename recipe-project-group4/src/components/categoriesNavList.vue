@@ -38,12 +38,12 @@ export default {
 div {
   display: flex;
   flex-direction: column;
-  justify-content: flex;
-  border-radius: 20px;
-  margin-left: 3%;
+  justify-content: stretch;
+  border-radius: 0px 20px 20px 0px;
   margin-top: 3%;
   background-color: white;
   border: solid 1px;
+  height: 100%;
 }
 
 ul {
@@ -51,6 +51,7 @@ ul {
   padding-left: 2%;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 li {
@@ -92,6 +93,10 @@ a:hover {
   border-radius: 0;
 }
 
+#menu-container{
+  height: 100%;
+}
+
 @media screen and (max-width: 900px) {
   #menu-container {
     width: 100%;
@@ -111,6 +116,7 @@ a:hover {
     overflow: hidden;
     flex-direction: row;
     justify-content: space-around;
+    height: auto;
   }
 
   h3{

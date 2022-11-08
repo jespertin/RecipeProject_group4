@@ -20,8 +20,8 @@
                     inactive-color="white" border-color="black" v-bind:border-width="parseInt(2)"
                     v-bind:star-size="parseInt(20)">
                 </star-rating>
-                <p id="pStyle">Ingredienser: {{ recipe.ingredients.length }}</p>
-                <p id="pStyle">Tid: {{ recipe.timeInMins }}min</p>
+                <p class="pStyle">Ingredienser: {{ recipe.ingredients.length }}</p>
+                <p class="pStyle">Tid: {{ recipe.timeInMins }}min</p>
             </div>
         </router-link>
     </div>
@@ -52,8 +52,7 @@ export default {
     font-weight: 500;
     font-size: 100%;
 }
-
-#pStyle {
+.pStyle {
     background-color: rgba(190, 232, 238, 0.966);
     border-radius: 5px;
     padding: 5px;
@@ -73,10 +72,6 @@ a {
     color: black;
     text-decoration: none;
 }
-
-/* a:link :hover {
-  background-color: lightgray;
-} */
 
 .description {
     align-self: flex-start;
@@ -106,7 +101,7 @@ a {
     padding-left: 2px;
     padding-right: 2px;
     height: 300px;
-    width: 400px;
+    width: 500px;
 
 }
 
@@ -167,7 +162,7 @@ ul {
     .receptDiv {
         width: 94%;
         margin-right: 1%;
-        margin-left: 3%;
+        margin-left: 1%;
     }
 
 }

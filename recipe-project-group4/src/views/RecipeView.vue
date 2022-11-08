@@ -67,8 +67,13 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 50vw;
+    width: 60%;
     margin: 0 auto;
+}
 
+@media screen and (max-width: 700px) {
+  #flexContainer {
+    width: 94%;
+  }
 }
 </style>

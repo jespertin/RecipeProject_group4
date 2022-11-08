@@ -6,7 +6,7 @@
         <div class="skeleton skeleton-text"></div>
         </div>
         <div id="recipeListContainer">
-            <div id="recipeLink" v-for="n in 8">
+            <div class="recipeLink" v-for="n in 8">
                 <div class="receptDiv">
 
                     <div id="recipeTitle" class="skeleton skeleton-text"></div>
@@ -85,24 +85,23 @@ export default {
     display: flex;
     width: 50%;
     height: 20px;
-    justify-content: center;
+    justify-content: space-around;
 }
 #recipeListContainer {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     overflow-y: visible;
-    justify-content: center;
+    justify-content: space-around;
 }
 
-#recipeLink {
+.recipeLink {
+    flex-basis: 20%;
+    height: 50%;
     margin-bottom: 20px;
-    flex-basis: 22%;
-    box-sizing: content-box;
-    margin-left: 20px;
 }
 
-#recipeLink :hover {
+.recipeLink :hover {
     background-color: lightgray;
 }
 
@@ -153,8 +152,6 @@ a {
 }
 
 .receptDiv {
-    width: 30rem;
-    height: 25rem;
     border: 1px solid;
     display: flex;
     flex-direction: row;
@@ -163,7 +160,10 @@ a {
     flex-wrap: wrap;
     border-radius: 20px;
     background-color: white;
-    box-sizing: content-box;
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 300px;
+    width: 500px;
 }
 
 
@@ -202,10 +202,18 @@ ul {
     font-size: 1.7rem;
 }
 
-@media screen and (max-width: 750px) {
-    .receptDiv {
-        width: 80vw;
-    }
+@media screen and (max-width: 800px) {
+
+.recipe-link {
+    flex-basis: 100%;
+    align-self: center;
+}
+
+.receptDiv {
+    width: 94%;
+    margin-right: 1%;
+    margin-left: 1%;
+}
 
 }
 </style>

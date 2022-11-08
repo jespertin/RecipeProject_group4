@@ -77,4 +77,16 @@ export default {
     background-color: white;
     border: 2px solid black;
 }
+
+@media screen and (max-width: 800px) {
+    .search-icon{
+        display: none;
+    }
+    
+    .wrapper{
+        position: static;
+        height: auto;
+        width: auto;
+    }
+}
 </style>
