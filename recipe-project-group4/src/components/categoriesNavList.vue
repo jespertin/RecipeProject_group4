@@ -87,7 +87,6 @@ a.router-link-active {
   cursor: default;
 }
 
-
 a:hover {
   background: lightgray;
   border-radius: 0;

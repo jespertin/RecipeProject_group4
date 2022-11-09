@@ -2,8 +2,8 @@
 
     <div>
         <div id="searchBarSkeleton">
-        <div class="skeleton skeleton-text"></div>
-        <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
+            <div class="skeleton skeleton-text"></div>
         </div>
         <div id="recipeListContainer">
             <div class="recipeLink" v-for="n in 8">
@@ -33,6 +33,7 @@
             </div>
         </div>
     </div>
+
 </template>
 <script>
 
@@ -78,7 +79,7 @@ export default {
     }
 }
 
-#searchBarSkeleton{
+#searchBarSkeleton {
     margin: auto;
     padding-top: 30px;
     padding-bottom: 30px;
@@ -87,6 +88,7 @@ export default {
     height: 20px;
     justify-content: space-around;
 }
+
 #recipeListContainer {
     display: flex;
     flex-direction: row;
@@ -204,16 +206,16 @@ ul {
 
 @media screen and (max-width: 800px) {
 
-.recipe-link {
-    flex-basis: 100%;
-    align-self: center;
-}
+    .recipe-link {
+        flex-basis: 100%;
+        align-self: center;
+    }
 
-.receptDiv {
-    width: 94%;
-    margin-right: 1%;
-    margin-left: 1%;
-}
+    .receptDiv {
+        width: 94%;
+        margin-right: 1%;
+        margin-left: 1%;
+    }
 
 }
 </style>

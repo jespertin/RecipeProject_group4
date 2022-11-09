@@ -1,4 +1,5 @@
 <template>
+
   <div class="recipe-flex-container" v-if="recipe">
     <h1>{{ recipe.title }}</h1>
 
@@ -80,13 +81,13 @@
       </section>
     </div>
   </div>
+
 </template>
 
 <script>
 import StarRating from "vue-star-rating";
 
 export default {
-
   components: {
     StarRating,
   },
@@ -169,7 +170,6 @@ h1 {
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-
   font-size: 1em;
 }
 

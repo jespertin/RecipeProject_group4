@@ -32,8 +32,6 @@
         </div>
       </ul>
     </div>
-
-
   </div>
 </template>
 
@@ -42,7 +40,6 @@
 export default {
   data() {
     return {
-
       commentLimit: 5,
       newCommentDate: null,
       newCommentText: "",
@@ -51,7 +48,6 @@ export default {
       commentDataArray: null,
       commentSent: false,
       isDisabled: true,
-
     }
   },
   watch: {
@@ -59,14 +55,10 @@ export default {
       this.convertCommentDataToArray()
     },
   },
-
   created() {
     this.loadCommentData()
   },
-
-
   methods: {
-
     loadCommentData() {
 
       fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId + "/comments")
@@ -74,9 +66,7 @@ export default {
         .then(data => this.commentsData = data)
         .catch(error => console.log("error: " + error))
     },
-
     convertCommentDataToArray() {
-
       this.commentDataArray = Object.keys(this.commentsData).map((id) => { return this.commentsData[id] })
       this.commentDataArray = this.commentDataArray.reverse()
 
@@ -140,7 +130,6 @@ export default {
   flex-direction: column;
   width: 100%;
   border-top: solid 1px;
-
 }
 
 .containerComment {
@@ -149,7 +138,6 @@ export default {
   flex-wrap: wrap;
   width: 100%;
   word-break: break-word;
-
 }
 
 #commentList {
@@ -169,13 +157,10 @@ ul {
   width: 100%;
 }
 
-
-
 #commentNameField {
   flex-basis: 60%;
   padding-left: 30px;
   font-size: 18px;
-
 }
 
 #commentDateField {
@@ -194,7 +179,6 @@ ul {
   word-break: break-word;
 }
 
-
 textarea {
   margin-bottom: 5px;
   resize: none;
@@ -203,11 +187,9 @@ textarea {
   width: 100%;
   border: 3px solid lightgray;
   border-radius: 4px;
-
 }
 
 #commentTextInputDiv {
-
   flex-basis: 100%;
   flex-grow: 1;
   flex-shrink: 0;
@@ -220,7 +202,6 @@ input {
   width: 90%;
   border: 3px solid lightgray;
   border-radius: 4px;
-
 }
 
 #nameInputDiv {

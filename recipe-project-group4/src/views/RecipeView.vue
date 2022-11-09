@@ -1,10 +1,6 @@
-<script setup>
-
-import Comments from '../components/comments.vue';
-
-</script>
 
 <template>
+
     <Banner :name="name" />
     <div id="flexContainer">
         <SpecificRecipe :recipe="recipe" :ratingScore="ratingScore"></SpecificRecipe>
@@ -12,6 +8,7 @@ import Comments from '../components/comments.vue';
         <Comments />
     </div>
     <Foot />
+
 </template>
 
 <script>
@@ -19,6 +16,7 @@ import SpecificRecipe from '../components/specificRecipe.vue'
 import Rating from '../components/Rating.vue'
 import Banner from '../components/banner.vue'
 import Foot from '../components/foot.vue'
+import Comments from '../components/comments.vue';
 
 export default {
     data() {
@@ -36,12 +34,11 @@ export default {
         SpecificRecipe,
         Rating,
         Banner,
-        Foot
+        Foot,
+        Comments
     },
     methods: {
-
         loadRecipeData(){
-
             fetch("https://jau21-grupp4-4d9plfkz634h.sprinto.se/recipes/" + this.$route.params.recipeId)
                 .then(response => response.json())
                 .then(data => this.recipe = data)
@@ -49,11 +46,9 @@ export default {
                 .then(() => { this.ratingScore = this.recipe.avgRating, this.name = this.recipe.categories })
         }
     },
-
     created() {
         this.loadRecipeData()
     },
-
     watch: {
         hasVoted() {
             this.loadRecipeData()

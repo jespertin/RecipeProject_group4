@@ -16,6 +16,7 @@
       <foot />
     </div>
   </div>
+
 </template>
 
 <script>
@@ -103,10 +104,6 @@ export default {
   margin: auto;
 }
 
-#componentContainer {}
-
-#navbarContainer {}
-
 #categoryMenu {
   float: left;
   width: 15%;
@@ -114,8 +111,6 @@ export default {
   overflow-y: auto;
 
 }
-
-#recipeList {}
 
 #searchBar {
   align-self: center;
@@ -126,7 +121,6 @@ export default {
 
 
 @media screen and (max-width: 800px) {
-
   #categoryMenu {
     float: none;
     height: auto;
@@ -136,7 +130,6 @@ export default {
     margin-bottom: 3%;
     border-radius: 20px;
   }
-
 
   .recipesAndSearchbarContainer {
     float: none;

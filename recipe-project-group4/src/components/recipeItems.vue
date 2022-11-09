@@ -1,4 +1,5 @@
 <template>
+
     <div class="recipes-flex-container" v-if="mydata">
         <div id="ifListEmpty" v-if="!mydata.length">
             <h2 id="listEmptyText">Inget recept hittat</h2>
@@ -25,6 +26,7 @@
             </div>
         </router-link>
     </div>
+
 </template>
 <script>
 
@@ -39,7 +41,6 @@ export default {
         mydata: Array
     }
 }
-
 </script>
 
 <style scoped>
@@ -52,6 +53,7 @@ export default {
     font-weight: 500;
     font-size: 100%;
 }
+
 .pStyle {
     background-color: rgba(190, 232, 238, 0.966);
     border-radius: 5px;
