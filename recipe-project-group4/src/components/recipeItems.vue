@@ -167,6 +167,11 @@ ul {
         margin-left: 1%;
     }
 
+    #recipeTitle {
+        width: 93%;
+        text-overflow: clip;
+    }
+
 }
 
 @media screen and (max-width: 500px) {

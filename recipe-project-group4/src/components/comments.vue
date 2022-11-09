@@ -81,7 +81,6 @@ export default {
     },
 
     addComment() {
-
       this.isDisabled = true
 
       if (this.newCommentName.length > 0 && this.newCommentName.length < 36 && this.newCommentText.length > 0 && this.newCommentText.length < 1000) {
