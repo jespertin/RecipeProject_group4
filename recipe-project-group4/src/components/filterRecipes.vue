@@ -71,7 +71,6 @@ export default {
     position: absolute;
 }
 
-
 .searchBar:hover,
 .searchBar:focus {
     background-color: white;
